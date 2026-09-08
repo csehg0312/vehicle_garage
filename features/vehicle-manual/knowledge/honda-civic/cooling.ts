@@ -4,12 +4,13 @@ import { d16v1Variant } from '../../data/honda-civic/variants'
 const variantId = d16v1Variant.id
 const serviceManual = 'honda-civic-service-manual-2001-2005'
 const ownerManual = 'honda-civic-owner-manual-2001'
+const secondaryCooling = 'honda-civic-d16v1-cooling-secondary'
 
 export const coolingKnowledge: KnowledgeEntry[] = [
   {
     id: 'cooling-system-overview',
     title: 'Cooling system overview',
-    summary: 'Knowledge entry for the D16V1 engine cooling system and its principal service-relevant components.',
+    summary: 'Research-backed knowledge entry for the D16V1 engine cooling system and its principal service-relevant components.',
     category: 'system',
     applicableVariants: [variantId],
     claims: [
@@ -42,26 +43,69 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         sources: [serviceManual],
       },
     ],
-    relatedEntries: ['coolant-replacement', 'engine-overheating-diagnosis', 'cooling-system-capacity'],
+    relatedEntries: ['coolant-replacement', 'engine-overheating-diagnosis', 'cooling-system-capacity', 'cooling-system-service-limits'],
     sources: [serviceManual],
   },
   {
     id: 'cooling-system-capacity',
     title: 'Cooling system capacity',
-    summary: 'Exact fill quantity is intentionally withheld until verified for the precise D16V1 vehicle and transmission configuration.',
+    summary: 'The D16V1 cooling-system refill quantity is approximately 4.0 L for manual-transmission applications and 3.9 L for automatic-transmission applications, including the reservoir, based on a secondary workshop-manual cross-check.',
     category: 'specification',
     applicableVariants: [variantId],
     claims: [
       {
-        id: 'cooling-capacity-requires-verification',
-        statement: 'A cooling-system fill quantity must not be applied until the exact vehicle configuration and corresponding Honda specification are confirmed.',
-        status: 'unverified',
+        id: 'cooling-capacity-manual',
+        statement: 'Cooling-system refill capacity is 4.0 L (4.2 US qt, 3.5 Imp qt) for the manual-transmission application in the cross-checked workshop data.',
+        status: 'partially-verified',
         applicableVariants: [variantId],
-        sources: [serviceManual],
-        notes: 'Migration preserves the existing safety guard instead of inventing a numeric capacity.',
+        sources: [secondaryCooling],
+        notes: 'Includes engine, heater, hoses and reservoir in the cited standard. Confirm against the primary Honda D16V1 specification before treating as final service data.',
+      },
+      {
+        id: 'cooling-capacity-automatic',
+        statement: 'Cooling-system refill capacity is 3.9 L (4.1 US qt, 3.4 Imp qt) for the automatic-transmission application in the cross-checked workshop data.',
+        status: 'partially-verified',
+        applicableVariants: [variantId],
+        sources: [secondaryCooling],
+        notes: 'Includes engine, heater, hoses and reservoir in the cited standard. Confirm against the primary Honda D16V1 specification before treating as final service data.',
       },
     ],
-    sources: [serviceManual],
+    sources: [secondaryCooling, serviceManual],
+  },
+  {
+    id: 'cooling-system-service-limits',
+    title: 'Cooling system service limits',
+    summary: 'Cross-checked cooling-system values that are useful for diagnosis and component testing, retained as partially verified until reconciled with the primary D16V1 manual.',
+    category: 'specification',
+    applicableVariants: [variantId],
+    claims: [
+      {
+        id: 'radiator-cap-pressure',
+        statement: 'Radiator-cap opening pressure is specified as 93-123 kPa (0.95-1.25 kgf/cm², 14-18 psi) in the cross-checked workshop data.',
+        status: 'partially-verified',
+        applicableVariants: [variantId],
+        sources: [secondaryCooling],
+        notes: 'Use only with the correct test procedure and equipment. Primary Honda confirmation remains required.',
+      },
+      {
+        id: 'thermostat-opening-temperature',
+        statement: 'The thermostat begins to open at 76-80 °C (169-176 °F), is fully open at 90 °C (194 °F), and has a specified fully-open valve lift of at least 8.0 mm in the cross-checked workshop data.',
+        status: 'partially-verified',
+        applicableVariants: [variantId],
+        sources: [secondaryCooling],
+        notes: 'Primary Honda confirmation remains required before using these as final service limits.',
+      },
+      {
+        id: 'cooling-fan-switch-range',
+        statement: 'The cross-checked workshop data associates the cooling-fan switch ON temperature with approximately 91-95 °C and specifies the OFF temperature as 3-8 °C below the actual ON temperature.',
+        status: 'partially-verified',
+        applicableVariants: [variantId],
+        sources: [secondaryCooling],
+        notes: 'Treat this as a diagnostic cross-check, not as a universal fan-control value for every Civic VII configuration.',
+      },
+    ],
+    relatedEntries: ['engine-overheating-diagnosis'],
+    sources: [secondaryCooling, serviceManual],
   },
   {
     id: 'coolant-replacement',
@@ -78,6 +122,14 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         sources: [serviceManual, ownerManual],
       },
       {
+        id: 'coolant-replacement-mixture',
+        statement: 'Honda maintenance documentation specifies Honda All Season Antifreeze/Coolant Type 2 as a 50/50 antifreeze-and-water mixture for the referenced 2001 Civic maintenance procedure.',
+        status: 'verified',
+        applicableVariants: [variantId],
+        sources: [ownerManual],
+        notes: 'The owner manual is US-market documentation; verify current coolant specification for the exact European vehicle before substituting fluids.',
+      },
+      {
         id: 'coolant-replacement-inspection',
         statement: 'Coolant replacement is an appropriate service point to inspect hoses, connections, the radiator and visible leak points.',
         status: 'partially-verified',
@@ -90,7 +142,14 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         statement: 'After refill, trapped air must be removed using the procedure applicable to the vehicle configuration and coolant level must be rechecked.',
         status: 'verified',
         applicableVariants: [variantId],
-        sources: [serviceManual],
+        sources: [serviceManual, ownerManual],
+      },
+      {
+        id: 'coolant-replacement-fan-cycle',
+        statement: 'The referenced Honda maintenance procedure uses radiator-fan operation as part of the refill and air-purge verification sequence.',
+        status: 'verified',
+        applicableVariants: [variantId],
+        sources: [ownerManual],
       },
       {
         id: 'coolant-replacement-final-verification',
@@ -100,13 +159,13 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         sources: [serviceManual],
       },
     ],
-    relatedEntries: ['cooling-system-overview', 'engine-overheating-diagnosis'],
+    relatedEntries: ['cooling-system-overview', 'cooling-system-capacity', 'engine-overheating-diagnosis'],
     sources: [serviceManual, ownerManual],
   },
   {
     id: 'engine-overheating-diagnosis',
     title: 'Engine overheating diagnosis',
-    summary: 'Diagnostic knowledge migrated from the existing overheating tree without treating symptoms alone as proof of component failure.',
+    summary: 'Diagnostic knowledge migrated from the existing overheating tree and strengthened with service-limit checks without treating symptoms alone as proof of component failure.',
     category: 'diagnostic',
     applicableVariants: [variantId],
     claims: [
@@ -132,6 +191,14 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         sources: [serviceManual],
       },
       {
+        id: 'overheating-check-cap',
+        statement: 'A cooling-system pressure test can be used to investigate pressure loss and coolant leakage, using the specified radiator-cap/system test pressure for the exact configuration.',
+        status: 'partially-verified',
+        applicableVariants: [variantId],
+        sources: [secondaryCooling, serviceManual],
+        notes: 'Exact Honda test sequence and acceptance criteria still require extraction from the primary D16V1 workshop procedure.',
+      },
+      {
         id: 'overheating-combustion-gas',
         statement: 'Possible combustion-gas intrusion must be confirmed with an appropriate test rather than inferred from symptoms alone.',
         status: 'partially-verified',
@@ -140,7 +207,7 @@ export const coolingKnowledge: KnowledgeEntry[] = [
         notes: 'Exact Honda diagnostic sequence and approved test method still require D16V1-specific extraction.',
       },
     ],
-    relatedEntries: ['cooling-system-overview', 'coolant-replacement'],
-    sources: [serviceManual],
+    relatedEntries: ['cooling-system-overview', 'cooling-system-service-limits', 'coolant-replacement'],
+    sources: [serviceManual, secondaryCooling],
   },
 ]
