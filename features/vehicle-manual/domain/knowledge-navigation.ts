@@ -1,23 +1,25 @@
-import type { KnowledgeCategory } from './knowledge-navigation-types'
+import type { KnowledgeEntry } from './knowledge'
+
+export type KnowledgeRelationType =
+  | 'part-of'
+  | 'contains'
+  | 'related-to'
+  | 'used-by'
+  | 'diagnoses'
+  | 'diagnosed-by'
+  | 'requires'
+  | 'specified-by'
 
 export interface KnowledgeRelation {
   targetId: string
-  relation:
-    | 'part-of'
-    | 'contains'
-    | 'related-to'
-    | 'used-by'
-    | 'diagnoses'
-    | 'diagnosed-by'
-    | 'requires'
-    | 'specified-by'
+  relation: KnowledgeRelationType
 }
 
 export interface KnowledgeNavigationItem {
   id: string
   title: string
   description?: string
-  category: KnowledgeCategory
+  category: KnowledgeEntry['category']
   entryIds: string[]
   icon?: string
 }
