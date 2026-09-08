@@ -1,0 +1,324 @@
+<!--MAIN SCREEN NAVIGATION BAR-->
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+
+<script id="ClientEventHandlersJS" language="javascript">
+var cont = 0
+function EX1_onclick(){
+parent.window.close()
+}
+
+
+function home1_onclick(){
+	parent.location.href="CivContents.htm";
+}
+
+
+function hom_onclick(){
+cont=0
+url = location.href
+
+var lastSlash = url.lastIndexOf("/")
+var urlstr = url.substring(0, lastSlash +1)
+var urlstr1 = urlstr + "helpset.htm"
+var ln3 = window.parent.frames('content').document.links.length - 1
+
+	if (window.parent.frames('content').breakout==1){
+		parent.location.href=window.parent.frames('content').backpage;
+	}
+	else if(window.parent.frames('content').breakout==2){
+		parent.location.href=window.parent.frames('content').backpage;
+	}
+	else{
+		document.images[4].src="images/b_nextpage.png"
+		document.images[3].src="images/b_prevpage.png"
+		window.parent.frames('content').location = window.parent.frames("content").document.links[ln3]
+		//window.parent.location = urlstr1*/
+	}
+}
+
+
+function prn_onclick(){
+if (window.parent.frames('content').iswddia == "yes") {
+
+window.parent.frames('content').document.all.t1.style.visibility = "hidden"
+window.parent.frames('content').document.all.t2.style.visibility = "visible"
+window.parent.frames('content').document.all.t2.style.top = 75
+self.parent.frames[1].focus()
+self.parent.frames[1].print()
+window.parent.frames('content').document.all.t1.style.visibility = "visible"
+window.parent.frames('content').document.all.t2.style.visibility = "hidden"
+
+}
+else {
+chkzoom()
+self.parent.frames[1].focus()
+self.parent.frames[1].print()
+}
+}
+
+function chkzoom(){
+
+if (cont == 1) {
+cont = 0
+window.parent.frames('content').location = window.parent.frames('content').location.href
+//for (var i = 0; i <= window.parent.frames("content").document.images.length; i++){
+//window.parent.frames("content").document.images[i].height = //window.parent.frames("content").document.images[i].height / 1.5;
+//window.parent.frames("content").document.images[i].width = //window.parent.frames("content").document.images[i].width / 1.5; }
+//prn_onclick()
+}
+
+
+}
+function his_onclick(){
+self.parent.frames[1].history.back()
+}
+
+function srch(){
+	FileLocation=parent.frames('content').location.href.toLowerCase();
+
+	if(FileLocation.indexOf("civhtml")>=1){
+		parent.frames('content').location.href="CivHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("civbhtml")>=1){
+		parent.frames('content').location.href="CivBHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("chtml")>=1){
+		parent.frames('content').location.href="CHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("cbhtml")>=1){
+		parent.frames('content').location.href="CBHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("civ34html")>=1){
+		parent.frames('content').location.href="Civ34Html/search.htm";
+	}
+	else if(FileLocation.indexOf("civ34bhtml")>=1){
+		parent.frames('content').location.href="Civ34BHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("clhtml")>=1){
+		parent.frames('content').location.href="CLHtml/search.htm";
+	}
+	else if(FileLocation.indexOf("civ37html")>=1){
+		parent.frames('content').location.href="Civ37Html/search.htm";
+	}
+        else if(FileLocation.indexOf("civ38html")>=1){
+		parent.frames('content').location.href="Civ38Html/search.htm";
+	}
+        else if(FileLocation.indexOf("civ41html")>=1){
+		parent.frames('content').location.href="Civ41Html/search.htm";
+	}
+	else if(parent.frames('content').VarSearch=="Disable"){
+		return false;
+	}
+	else{
+		parent.frames('content').location.href=parent.frames('content').VarSearch;
+	}
+
+}
+
+
+function index(){
+        FileLocation=parent.frames('content').location.href.toLowerCase();
+
+	if(FileLocation.indexOf("civhtml")>=1){
+		parent.frames('content').location.href="CivHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("civbhtml")>=1){
+		parent.frames('content').location.href="CivBHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("chtml")>=1){
+		parent.frames('content').location.href="CHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("cbhtml")>=1){
+		parent.frames('content').location.href="CBHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("civ34html")>=1){
+		parent.frames('content').location.href="Civ34Html/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("civ34bhtml")>=1){
+		parent.frames('content').location.href="Civ34BHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("clhtml")>=1){
+		parent.frames('content').location.href="CLHtml/keyindex.htm";
+	}
+	else if(FileLocation.indexOf("civ37html")>=1){
+		parent.frames('content').location.href="Civ37Html/keyindex.htm";
+	}
+        else if(FileLocation.indexOf("civ38html")>=1){
+		parent.frames('content').location.href="Civ38Html/keyindex.htm";
+	}
+        else if(FileLocation.indexOf("civ41html")>=1){
+		parent.frames('content').location.href="Civ41Html/keyindex.htm";
+	}
+	else if(parent.frames('content').VarIndex=="Disable"){
+		return false;
+	}
+	else{
+		parent.frames('content').location.href=parent.frames('content').VarIndex;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+function cnts(){
+        FileLocation=parent.frames('content').location.href.toLowerCase();
+
+	if(FileLocation.indexOf("civhtml")>=1){
+		parent.frames('content').location.href="CivHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("civbhtml")>=1){
+		parent.frames('content').location.href="CivBHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("chtml")>=1){
+		parent.frames('content').location.href="CHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("cbhtml")>=1){
+		parent.frames('content').location.href="CBHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("civ34html")>=1){
+		parent.frames('content').location.href="Civ34Html/cnts.htm";
+	}
+	else if(FileLocation.indexOf("civ34bhtml")>=1){
+		parent.frames('content').location.href="Civ34BHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("clhtml")>=1){
+		parent.frames('content').location.href="CLHtml/cnts.htm";
+	}
+	else if(FileLocation.indexOf("civ37html")>=1){
+		parent.frames('content').location.href="Civ37Html/cnts.htm";
+	}
+        else if(FileLocation.indexOf("civ38html")>=1){
+		parent.frames('content').location.href="Civ38Html/cnts.htm";
+	}
+        else if(FileLocation.indexOf("civ41html")>=1){
+		parent.frames('content').location.href="Civ41Html/cnts.htm";
+	}
+	else if(parent.frames('content').VarCnts=="Disable"){
+		return false;
+	}
+	else{
+		parent.frames('content').location.href=parent.frames('content').VarCnts;
+	}
+
+}
+
+
+
+
+
+LastZoom="";
+UpdateZoom="";
+
+function zoom(){
+	UpdateZoom=parent.frames('content').location.href.toLowerCase();
+	if (LastZoom!=UpdateZoom){
+		x=0;
+	}
+	if (x==0){
+		ReturnWidth=new Array();
+		ReturnHeight=new Array();
+
+		for (i=0; i<window.parent.frames("content").document.images.length; i++){
+
+
+			ReturnWidth[i]=window.parent.frames("content").document.images[i].width;
+			ReturnHeight[i]=window.parent.frames("content").document.images[i].height;
+			LastZoom=parent.frames('content').location.href.toLowerCase();
+
+			window.parent.frames("content").document.images[i].height = window.parent.frames("content").document.images[i].height * 1.2;
+			window.parent.frames("content").document.images[i].width = window.parent.frames("content").document.images[i].width * 1.2;	
+		}
+	}
+	else if (x==1){
+		for (i=0; i<window.parent.frames("content").document.images.length; i++){
+			window.parent.frames("content").document.images[i].height = ReturnHeight[i];
+			window.parent.frames("content").document.images[i].width = ReturnWidth[i];
+		}
+	}
+
+//tells browser if zoom was clicked.
+	if (x==0){
+		x=1;
+	}
+	else{
+		x=0;
+	}
+}
+
+function conts(){
+eval(parent.frames('content').location.href=window.parent.frames('content').subfld+"cnts.htm");
+}
+/*---------------------------------------------------------------------*/
+function previousPG(){
+cont=0
+	var ln0 = window.parent.frames('content').document.links.length - 3
+	document.images[4].src="images/b_nextpage.png";
+	if (window.parent.frames('content').breakout==1 || window.parent.frames('content').breakout==2){
+		return false;
+	}
+	else if(window.parent.frames("content").document.location.href == window.parent.frames("content").document.links[ln0]){
+		document.images[3].src="images/b_prevpage_x.png" }
+	else{
+		document.images[3].src="images/b_prevpage.png"
+		window.parent.frames('content').location = window.parent.frames('content').document.links[ln0]
+	}
+}
+
+function nextPG(){
+cont=0
+var ln1 = window.parent.frames('content').document.links.length - 2
+	document.images[3].src="images/b_prevpage.png"
+	if (window.parent.frames('content').breakout==1 || window.parent.frames('content').breakout==2){
+		return false;
+	}
+	else if(window.parent.frames("content").document.location.href == window.parent.frames("content").document.links[ln1]){
+		document.images[4].src="images/b_nextpage_x.png";
+	}
+	else{
+		document.images[4].src="images/b_nextpage.png"
+		window.parent.frames('content').location = window.parent.frames('content').document.links[ln1]
+	}
+}
+</script>
+</HEAD>
+<BODY LEFTMARGIN=6 BGCOLOR="#c0c0c0">
+<TABLE BORDER=0 WIDTH="100%">
+<TR>
+<TD ALIGN="LEFT" WIDTH=0>
+<IMG id="hom" name="hom" SRC="images/uplevel.png" alt="Up a level" BORDER=0 ALIGN="BOTTOM" onclick="return hom_onclick()">
+<IMG id="prn" name="prn" SRC="images/print.png" alt="Print" BORDER=0 ALIGN="BOTTOM" onclick="return prn_onclick()">
+<a href="#"><IMG id="his" name="his" SRC="images/lastview.png" alt="Back" BORDER=0 ALIGN="BOTTOM" onclick="return his_onclick()"></a>
+
+
+
+
+<!-- BACK AND FORWARD BUTTONS -->
+<IMG id="bac" name="bac" alt="Previous Page" SRC="images/b_prevpage.png" BORDER=0 ALIGN="BOTTOM" onclick="previousPG()">
+<IMG id="far" name="far" alt="Next Page" SRC="images/b_nextpage.png" BORDER=0 onclick="nextPG()">
+
+<!-- SEARCH -->
+<IMG id="btnSearch" name="btnSearch" SRC="images/search.png" onclick="srch()" alt="Search" BORDER=0>
+
+<!-- HELP -->
+<IMG alt="Contents" SRC="images/contts.png" onclick="cnts()" name="btnCnts" id="btnCnts">
+
+<!-- INDEX -->
+<IMG alt="Index" SRC="images/indx.png" onclick="index()" name="bntIndex" id="btnIndex">
+
+<img id=z1 name=z1 src="images/Zoom.png" alt="Zoom" onclick="zoom()" border=0>
+<IMG id=home1 name=home1  alt="Return to main screen" SRC="images/main_button.png" onclick="return home1_onclick()" BORDER=0 ALIGN="BOTTOM">
+
+<img id=EX1 alt="exit" name=Ex1 src="images/Exit.png" onclick="return EX1_onclick()" align="Bottom" style="position:absolute; right:0px; ">
+
+</TD></TR></TABLE>
+<span style="position:absolute; left:0px; bottom:0px; z-index:50"><img src="images/finger.png" height="7" width=102%></span>
+</BODY>
+</HTML>

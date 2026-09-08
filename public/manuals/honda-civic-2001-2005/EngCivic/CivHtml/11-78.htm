@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fuel and Emissions - PGM-FI System</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="pgm.fisystem23"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>PGM-FI System
+<H4 class=heading-4>DTC Troubleshooting (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-78</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-begin><table width=100%><tr><td width=49% align=Left valign=Top>
+<p><B>DTC P0171: Fuel System Too Lean</B></P>
+<p><B>DTC P0172: Fuel System Too Rich</B></p>
+
+<P>NOTE: If some of the DTCs listed below are stored at the same time as DTC P0171 and/or P0172, troubleshoot those DTCs first, then recheck for P0171 and/or P0172.</P>
+
+<P>P0107, P0108: Manifold Absolute Pressure (MAP) sensor</P>
+
+<P>P0135: Primary Heated Oxygen Sensor (Primary HO2S) (Sensor 1) heater</P>
+
+<P>P0137, P0138: Secondary HO2S (Sensor 2)</P>
+
+<P>P0141: Secondary HO2S (Sensor 2) heater</P>
+
+<P>P0401 P1491, P1498: Exhaust Gas Recirculation (EGR) system*</P>
+
+<P>P1259: VTEC system*</P>
+
+<P>*: D16W7, D16V1 engines
+
+<OL class=para1>
+	<LI>Check the fuel pressure (see page <a href="11-131.htm">11-131</a>).</LI>
+</OL>
+
+<P class=Italic><I>Is fuel pressure OK?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 2.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Check these items:</TD>
+</TR>
+</TABLE><BR>
+
+<UL class=bullet-2>
+	<LI>If the pressure is too high, replace the fuel pressure regulator (see page <a href="11-138.htm">11-138</a>).  <img src="sqr.gif"></LI>
+
+	<LI>If the pressure is too low, check the fuel pump, the fuel feed pipe, the fuel filter, and replace the fuel pressure regulator (see page <a href="11-138.htm">11-138</a>).  <img src="sqr.gif"></LI>
+</UL>
+
+<OL class=para1 start=2>
+	<LI>Start the engine.  Hold the engine at 3,000 rpm with no load (in Park or neutral) until the radiator fan comes on.</LI>
+
+	<LI>Check the primary HO2S (Sensor 1) output with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Does it stay at less than 0.3 V or more than 0.6 V?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Replace the primary HO2S (Sensor 1).  <img src="sqr.gif"></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 4.</TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=4>
+	<LI>Turn the ignition switch OFF.</LI>
+</OL>
+
+<P class=Double-column-flow></td><td width=2% align=Left valign=Top><img src="line1.gif" width=1 height=800></td><td width=49% align=Left valign=Top>
+<OL class=para1 start=5>
+<li>With a vacuum pump (A), apply vacuum to the evaporative emission (EVAP) canister purge valve (B) from the intake manifold side.</li></ol></P>
+
+<P class=imgcenter><img src="11-78a25.gif"></P>
+
+<P class=Italic><I>Does it hold vacuum?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 6.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Replace the EVAP canister purge valve.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=6>
+	<LI>Turn the ignition switch ON (II).</LI>
+
+	<LI>Check the manifold pressure with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Does it indicate atmospheric pressure?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 8.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Replace the MAP sensor.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=8>
+	<LI>Start the engine.</LI>
+
+	<LI>Check the MAP with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Is a MAP of 40.0 kPa (300 mmHg, 12.0 in.Hg) or less indicated within 1 second after starting the engine?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=21%><B>YES</B></TD>
+<TD><P class=tabletext width=79%>- Check the valve clearances and adjust if necessary.  If the valve clearances are OK, replace the injectors.  <img src="sqr.gif"></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=21%><B>NO</B></TD>
+<TD><P class=tabletext width=79%>- Replace the MAP sensor.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-end></td></tr></table></P>
+<div style="visibility:hidden"><a href="11-77.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="11-79.htm"></a>
+<IMG SRC="grys_n.gif" BORDER=0><a href="11-0.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

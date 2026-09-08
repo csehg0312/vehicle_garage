@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Body Electrical - Multiplex Control System</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="multiplexcontrolsystem5"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>Multiplex Control System
+<H4 class=heading-4>System Description</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>22-272</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-begin><table width=100%><tr><td width=49% align=Left valign=Top>
+The multiplex Control System has four internal functions:
+
+<UL class=bullet-1>
+	<LI>Multiplexing (send multiple signals over shared wires)</LI>
+
+	<LI>Wake up/sleep (runs at full power only on demand to reduce battery draw)</LI>
+
+	<LI>Fail-safe (fixes or ignores faulty signals)</LI>
+
+	<LI>Self-diagnosis (Mode 1 for the system, Mode 2 for input lines)</LI>
+</UL>
+
+<P>The system controls the function of these circuits:
+
+<UL class=bullet-1>
+	<LI>Entry light control</LI>
+
+	<LI>Wiper/washer (including intermittent wiper)</LI>
+
+	<LI>Interlock</LI>
+
+	<LI>Keyless/power Door Lock</LI>
+
+	<LI>Key - in reminder</LI>
+</UL>
+
+<P class=Double-column-flow></td><td width=2% align=Left valign=Top><img src="line1.gif" width=1 height=800></td><td width=49% align=Left valign=Top>
+<B>Multiplex Communication</B></P>
+
+<P>To reduce the number of wire harnesses, digital signals are sent via shared multiplex communication lines rather than sending normal electrical signals through individual wires.
+
+<UL class=bullet-1>
+	<LI>The input signals from each switch are converted to digital signals at the central processing unit (CPU).</LI>
+
+	<LI>The digital signals are sent from the transmitting unit to the receiving unit as serial signals.</LI>
+
+	<LI>The transmitted signal is converted to a switch signal at the receiving unit and it operates the related component or monitors a switch.</LI>
+
+	<LI>There are exclusive communication lines between the ECM/PCM and the gauge assembly.</LI>
+</UL>
+
+<P class=normal-bold><B>Wake-up and Sleep</B></P>
+
+<P>The multiplex control system has ''wake-up'' and ''sleep'' functions to decrease parasitic draw on the battery when the ignition switch is OFF.
+
+<UL class=bullet-1>
+	<LI>In the sleep mode, the multiplex control unit stops functioning (communication and CPU control) when it is not necessary for the system to operate.</LI>
+
+	<LI>As soon as any operation is requested (for example, a door is unlocked), the related control unit in the sleep mode immediately wakes up and begins to function.</LI>
+
+	<LI>When the ignition switch is turned OFF and the driver's or front passenger's door is opened, then closed, there is about a 10 second delay before the control unit goes from the wake-up mode to the sleep mode.</LI>
+
+	<LI>If any door is open, the sleep mode will not function.</LI>
+
+	<LI>If a key is in the ignition switch, the sleep mode will not function.</LI>
+</UL>
+
+<P class=normal-bold><B>Fail-safe</B></P>
+
+<P>To prevent improper operation, the multiplex control system has a fail-safe function. In the fail-safe mode, the output signal is fixed when any part of the system malfunctions (for example a faulty control unit or communication line).</P>
+
+<P>Each control unit has a hardware fail-safe function that fixes the output signal when there is any CPU malfunction and a software fail-safe function that ignores the signal from the malfunctioning control unit and allows the system to operate normally.</P>
+
+<P class=Double-column-end></td></tr></table></P>
+<div style="visibility:hidden"><a href="22-271.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="22-273.htm"></a><IMG SRC="grys_n.gif" BORDER=0><a href="22-1.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+    "index_1_0.dtd">
+<index version="1.0" topic="y">
+		<indexitem text="Body Dimensional Drawings">
+			<indexitem target="4_1" topic="y" text="4-1"/>
+			<indexitem target="4_2" topic="y" text="4-2"/>
+			<indexitem target="4_3" topic="y" text="4-3"/>
+			<indexitem target="4_4" topic="y" text="4-4"/>
+			<indexitem target="4_5" topic="y" text="4-5"/>
+			<indexitem target="4_6" topic="y" text="4-6"/>
+			<indexitem target="4_7" topic="y" text="4-7"/>
+			<indexitem target="4_8" topic="y" text="4-8"/>
+		</indexitem>
+		<indexitem target="Contents" text="Contents"/>
+		<indexitem text="General Information">
+			<indexitem target="1_1" topic="y" text="1-1"/>
+			<indexitem target="1_2" topic="y" text="1-2"/>
+			<indexitem target="1_3" topic="y" text="1-3"/>
+			<indexitem target="1_4" topic="y" text="1-4"/>
+			<indexitem target="1_5" topic="y" text="1-5"/>
+			<indexitem target="1_6" topic="y" text="1-6"/>
+			<indexitem target="1_7" topic="y" text="1-7"/>
+		</indexitem>
+		<indexitem target="0_1" text="Introduction"/>
+		<indexitem text="Replacement">
+			<indexitem target="3_1" topic="y" text="3-1"/>
+			<indexitem target="3_10" topic="y" text="3-10"/>
+			<indexitem target="3_11" topic="y" text="3-11"/>
+			<indexitem target="3_2" topic="y" text="3-2"/>
+			<indexitem target="3_3" topic="y" text="3-3"/>
+			<indexitem target="3_4" topic="y" text="3-4"/>
+			<indexitem target="3_5" topic="y" text="3-5"/>
+			<indexitem target="3_6" topic="y" text="3-6"/>
+			<indexitem target="3_7" topic="y" text="3-7"/>
+			<indexitem target="3_8" topic="y" text="3-8"/>
+			<indexitem target="3_9" topic="y" text="3-9"/>
+		</indexitem>
+		<indexitem text="Rust Prevention">
+			<indexitem target="5_1" topic="y" text="5-1"/>
+			<indexitem target="5_2" topic="y" text="5-2"/>
+			<indexitem target="5_3" topic="y" text="5-3"/>
+		</indexitem>
+</index>

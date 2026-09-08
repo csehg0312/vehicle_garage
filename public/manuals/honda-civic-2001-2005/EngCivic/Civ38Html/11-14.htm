@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>11-14</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff onload="if (parent != null) {if (parent.left != null) {parent.left.OnNewTopic();}}" text=#000000>
+
+<P><A NAME="11.14"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>Fuel and Emissions Systems
+<H4 class=heading-4>System Descriptions (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-14</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=normal-bold><B>ECM Inputs and Outputs at Connector E (31P)</B></P>
+
+<P class=imgcenter><p class=imgcenter><img src="11-14a38.gif"></P>
+
+<P class=Body-Centre>Wire side of female terminals</P>
+
+<P>NOTE: Standard battery voltage is 12 V.</P>
+
+<TABLE border=1 cols=5 frame=box rules=all width=690>
+
+<TR VALIGN="top">
+<TD class=Tabletext-heading width=9%><B>Terminal number</B></TD>
+<TD class=Tabletext-heading width=12%><B>Wire colour</B></TD>
+<TD class=Tabletext-heading width=26%><B>Terminal name</B></TD>
+<TD class=Tabletext-heading width=25%><B>Description</B></TD>
+<TD class=Tabletext-heading width=28%><B>Signal</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>1</TD>
+<TD class=Tabletext-centre width=12%>GRN/YEL</TD>
+<TD class=tabletext width=26%>IMO FPR (IMMOBILISER FUEL PUMP RELAY)</TD>
+<TD class=tabletext width=25%>Drives PGM-FI main relay 2</TD>
+<TD class=tabletext width=28%>0 V for two seconds after turning ignition switch ON (II), then battery voltage</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>2</TD>
+<TD class=Tabletext-centre width=12%>WHT/RED</TD>
+<TD class=tabletext width=26%>SHO2S (SECONDARY HEATED OXYGEN SENSOR, SENSOR 2)</TD>
+<TD class=tabletext width=25%>Detects Secondary HO2S (sensor 2) signal</TD>
+<TD class=tabletext width=28%>With throttle fully opened from idle with fully warmed up engine: above 0.6 V
+<P class=tabletext>With throttle quickly closed: below 0.4 V</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>3</TD>
+<TD class=Tabletext-centre width=12%>BRN/YEL</TD>
+<TD class=tabletext width=26%>LG3 (LOGIC GROUND)</TD>
+<TD class=tabletext width=25%>Ground for the ECM/PCM control circuit</TD>
+<TD class=tabletext width=28%>Less than 1.0 V at all times</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>4</TD>
+<TD class=Tabletext-centre width=12%>PNK</TD>
+<TD class=tabletext width=26%>SG3 (SENSOR GROUND)</TD>
+<TD class=tabletext width=25%>Sensor ground</TD>
+<TD class=tabletext width=28%>Less than 1.0 V at all times</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>6</TD>
+<TD class=Tabletext-centre width=12%>BLK/WHT</TD>
+<TD class=tabletext width=26%>SO2SHTC (SECONDARY HEATED OXYGEN SENSOR HEATER CONTROL)</TD>
+<TD class=tabletext width=25%>Drives Secondary HO2S heater</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): battery voltage
+<P class=tabletext>With fully warmed up engine running: duty controlled</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>7</TD>
+<TD class=Tabletext-centre width=12%>RED/YEL</TD>
+<TD class=tabletext width=26%>MRLY (PGM-FI MAIN RELAY)</TD>
+<TD class=tabletext width=25%>Drives PGM-FI main relay 1
+<P class=tabletext>Power source for the DTC memory</P>
+</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): battery voltage
+<P class=tabletext>With ignition switch OFF: about 0 V</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>9</TD>
+<TD class=Tabletext-centre width=12%>YEL/BLK</TD>
+<TD class=tabletext width=26%>IG1 (IGNITION SIGNAL)</TD>
+<TD class=tabletext width=25%>Detects ignition signal</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): battery voltage
+<P class=tabletext>With ignition switch OFF: about 0 V</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>15</TD>
+<TD class=Tabletext-centre width=12%>GRN/RED</TD>
+<TD class=tabletext width=26%>ELD (ELECTRICAL LOAD DETECTOR)</TD>
+<TD class=tabletext width=25%>Drives ELD signal</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): about 0.1 V - 4.8 V
+<P class=tabletext>(depending on electrical load)</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>16</TD>
+<TD class=Tabletext-centre width=12%>LT GRN/BLK</TD>
+<TD class=tabletext width=26%>EPSLD (ELECTRICAL POWER STEERING LOAD DETECT)</TD>
+<TD class=tabletext width=25%>Detects power steering load signal</TD>
+<TD class=tabletext width=28%>At idle steering wheel in straight ahead position: about 0 V
+<P class=tabletext>At idle with steering wheel at full lock: battery voltage momentarily</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>18</TD>
+<TD class=Tabletext-centre width=12%>RED</TD>
+<TD class=tabletext width=26%>ACC (A/C CLUTCH RELAY)</TD>
+<TD class=tabletext width=25%>Drives A/C clutch relay</TD>
+<TD class=tabletext width=28%>With compressor ON: about 0 V
+<P class=tabletext>With compressor OFF: battery voltage</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>22</TD>
+<TD class=Tabletext-centre width=12%>WHT/BLK</TD>
+<TD class=tabletext width=26%>BKSW (BRAKE PEDAL POSITION SWITCH)</TD>
+<TD class=tabletext width=25%>Detects BPP switch signal</TD>
+<TD class=tabletext width=28%>With brake pedal released: about 0 V
+<P class=tabletext>With brake pedal pressed: battery voltage</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>23</TD>
+<TD class=Tabletext-centre width=12%>LT BLU</TD>
+<TD class=tabletext width=26%>K-LINE</TD>
+<TD class=tabletext width=25%>Sends and receives scan tool signal</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): pulses or battery voltage</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>24</TD>
+<TD class=Tabletext-centre width=12%>YEL</TD>
+<TD class=tabletext width=26%>SEFMJ</TD>
+<TD class=tabletext width=25%>Communicates with multiplex control unit</TD>
+<TD class=tabletext width=28%>With ignition switch ON (II): about 5 V
+<P class=tabletext>With engine running with load: pulses</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>26</TD>
+<TD class=Tabletext-centre width=12%>BLU</TD>
+<TD class=tabletext width=26%>NEP (ENGINE SPEED PULSE)</TD>
+<TD class=tabletext width=25%>Outputs engine speed pulse</TD>
+<TD class=tabletext width=28%>With engine running: pulses</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>27</TD>
+<TD class=Tabletext-centre width=12%>RED/BLU</TD>
+<TD class=tabletext width=26%>IMOCD (IMMOBILISER CODE)</TD>
+<TD class=tabletext width=25%>Detects immobiliser signal</TD>
+<TD class=tabletext width=28%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>29</TD>
+<TD class=Tabletext-centre width=12%>BRN</TD>
+<TD class=tabletext width=26%>SCS (SERVICE CHECK SIGNAL)</TD>
+<TD class=tabletext width=25%>Detects service check signal</TD>
+<TD class=tabletext width=28%>With the service check signal shorted with the PGM Tester: about 0 V
+<P class=tabletext>With the service check signal opened: about 5 V battery voltage</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=Tabletext-centre width=9%>31</TD>
+<TD class=Tabletext-centre width=12%>GRN/ORN</TD>
+<TD class=tabletext width=26%>MIL (MALFUNCTION INDICATOR LAMP)</TD>
+<TD class=tabletext width=25%>Drives MIL</TD>
+<TD class=tabletext width=28%>With MIL turned ON: about 0 V
+<P class=tabletext>With MIL turned OFF: battery voltage</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P><div style={visibility:hidden}><a href ="11-13.htm">a</a><a href ="11-15.htm">a</a><a href ="11-1.htm">a</a></div></P>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+     .BannerBase { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Banner Base"; }
+     .Base { font-size: 10pt ; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  }
+     .Body-Text { margin: 5pt  0pt  1px  0pt ; line-height: 14pt ;  }
+     .Bullet1 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Bullet2 { font-size: 10pt ; margin: 0pt  0pt  1px  27pt ; text-indent: -27pt ; font-family: Arial,sans-serif;  }
+     .Bullet3 { font-size: 10pt ; margin: 0pt  0pt  1px  27pt ; text-indent: -27pt ; font-family: Arial,sans-serif;  }
+     .Bullet4 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Bullet5 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .ButtonBar { font-size: 6pt ; font-weight: bold; margin: 0pt  0pt  1px  -0.1in ; font-family: Arial,sans-serif;  fhname: "Button Bar"; }
+     .Definition { font-style: italic; margin: 0.0798in  0pt  1px  0pt ; line-height: 14pt ;  }
+     .Figures { font-size: 9pt ; font-weight: bold; margin: 0pt  0pt  1px  0pt ;  }
+     .Figures-Table { font-size: 9pt ; font-weight: bold; margin: 0pt  0pt  1px  0pt ;  }
+     .GlossaryTerm { font-size: 11pt ; font-style: italic; margin: 2pt  0pt  2pt  0pt ;  }
+     H2.heading-2 { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0979in ; font-family: Arial,sans-serif;  align: left;  width: 360px;  }
+     H4.heading-4 { font-size: 10pt ; font-weight: bold; margin: 0%  0pt  1px  0.2750in ; font-family: Arial,sans-serif;  align: left;  }
+     .heading-2 { font-size: 14pt ; font-weight: bold; margin: 9pt  0pt  7pt  0pt ;  }
+     .heading-3 { font-size: 14pt ; font-weight: bold; margin: 9pt  0pt  7pt  0pt ;  }
+     .heading-4 { font-size: 14pt ; font-weight: bold; margin: 9pt  0pt  7pt  0pt ;  }
+     .Heading-right { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.1965in ; font-family: Arial,sans-serif;  width: 360px;  }
+     .Jump { text-decoration: underline ; margin: 0pt  0pt  3pt  0pt ;  }
+     .Jump-Base { text-decoration: underline ; margin: 0pt  0pt  3pt  0pt ;  }
+     .Jump-from-Contents { font-size: 11pt ; font-weight: bold; text-decoration: underline ; margin: 1pt  0pt  3pt  0pt ;  }
+     .Jump-from-List { text-decoration: underline ; margin: -0.2em  0pt  3pt  0pt ;  }
+     .Keyword-Link { font-size: 11pt ; color: #0000ff; margin: 0pt  0pt  1px  0pt ;  }
+     .List-Table { font-size: 9pt ; margin: 0pt  0pt  1px  0pt ; background-color: #eeeeee;  list-style-position: outside;  list-style-type: disc;  }
+     .MaintenaceDOT { font-size: 12pt ; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Wingdings,sans-serif;  fhname: "Maintenace DOT"; }
+     .normalbold { font-size: 10pt ; font-weight: bold; text-align: justify; margin: 0pt  0pt  1px  0.0895in ; font-family: Arial,sans-serif;  fhname: "normal bold"; }
+     .Note { margin: 9pt  0pt  9pt  0pt ; border: medium solid ; padding-top: 1px ; padding-bottom: 1px ;  }
+     .Number1 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number2 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number3 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number4 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number5 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     OL OL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: upper-Alpha;  }
+     OL UL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: square;  }
+     oL.key-legend { font-size: 8pt ; margin: 0pt  0pt  1px  3em ; font-family: Arial,sans-serif;  display: list-item;  }
+     OL.List { font-size: 12pt ; margin: 0pt  0pt  1px  3em ; font-family: Times New Roman,sans-serif;  display: list-item;  }
+     OL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: upper-Alpha;  }
+     OL.List-Table { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; background-color: #eeeeee; font-family: Times New Roman,sans-serif;  list-style-type: decimal;  list-style-position: outside;  }
+     oL.para1 { font-size: 12pt ; margin: 0em  0pt  1px  0.1965in ; font-family: Arial,sans-serif;  display: list-item;  }
+     oL.para2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  0.3930in ; font-family: Arial,sans-serif;  list-style-type: numeric;  }
+     P.12pt-bold { font-size: 12pt ; margin: 0pt  0pt  0.3em  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Block-indent-bold { font-size: 10pt ; margin: 0pt  0pt  3px  0.3930in ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Block-text { font-size: 10pt ; margin: 0em  0pt  0.3em  0.1965in ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Body-Centre { font-size: 10pt ; text-align: center; margin: 0pt  0pt  12pt  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Body-centre-bold { font-size: 10pt ; text-align: center; margin: 0pt  0pt  12pt  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Body-rh-Bold { font-size: 10pt ; text-align: right; margin: 0pt  0pt  12pt  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.bold-indent { font-size: 10pt ; margin: 0pt  0pt  3px  0.1965in ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Double-column-begin { font-size: 10pt ; margin: 0pt  0pt  12pt  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.Double-column-flow { font-size: 10pt ; margin: 0pt  0pt  12pt  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.imgcenter { font-size: 12pt ; text-align: center; margin: 0em  0pt  1px  0pt ; font-family: Times New Roman,sans-serif;  }
+     P.Italic { font-size: 10pt ; margin: 0em  0pt  0.3em  0.1965in ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.List { font-size: 12pt ; margin: 0pt  0pt  12pt  2em ; font-family: Times New Roman,sans-serif;  }
+     P.List-2 { font-size: 12pt ; margin: 0.5em  0pt  12pt  0pt ; font-family: Times New Roman,sans-serif;  }
+     P.normal-bold { font-size: 10pt ; margin: 0em  0pt  0.3em  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.notice { font-size: 12pt ; margin: 1%  0pt  1%  0pt ; text-indent: 1em ; border: thin solid ; text-transform: capitalize; font-family: Times New Roman,sans-serif;  width: 5em;  min-width: 4em;  max-width: 8em;  }
+     P.Pic-key-legend-indent { font-size: 8pt ; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  }
+     P.TableText-8pt { font-size: 8pt ; margin: 0pt  0pt  1px  0pt ; font-family: Times New Roman,sans-serif;  }
+     P.Tabletext-centre { font-size: 9pt ; margin: 0em  0pt  0.3em  0pt ; font-family: Arial,sans-serif;  font-size-adjust: 100%;  }
+     P.warningbody { font-size: 10pt ; font-weight: bold; margin: 0px  0px  1px  0.0388in ; font-family: Arial,sans-serif;  }
+     P.warning_caution { font-size: 60 ; font-weight: bold; color: #ffffff; text-align: center; margin: 0em  0pt  1px  0pt ; background-color: #000000; font-family: Arial,sans-serif;  width: 100%;  }
+     .piclegend { font-size: 8pt ; margin: 0em  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "pic legend"; }
+     .Pickey-legend-indent { font-size: 8pt ; margin: 0pt  0pt  1px  0.0979in ; font-family: Arial,sans-serif;  fhname: "Pic/key-legend-indent"; }
+     .RelatedHead { font-size: 11pt ; font-weight: bold; color: #0000ff; margin: -0.2em  0pt  0.5em  0pt ;  }
+     .RH-4 { font-size: 10pt ; font-weight: bold; margin: 0%  0pt  1px  0.2951in ; font-family: Arial,sans-serif;  }
+     .Source { margin: 0px  0pt  1px  36pt ; font-family: Courier New,sans-serif;  }
+     .Table-List { font-size: 9pt ; margin: 0pt  0pt  1px  0pt ; background-color: #eeeeee;  list-style-position: outside;  list-style-type: disc;  }
+     .tableBorder { margin: 0pt  0pt  1px  0pt ; border: medium double ;  }
+     .TableHeading { font-size: 9pt ; font-weight: bold; margin: 0px  0px  1px  0px ;  }
+     .TableList { font-size: 9pt ; margin: 0pt  0pt  1px  0pt ; background-color: #eeeeee;  list-style-position: outside;  list-style-type: disc;  }
+     .TableText { font-size: 9pt ; margin: 0.2em  0.2em  0.2em  0em ;  }
+     TD { font-size: 10pt ; margin: 0px  0px  1px  0.1965in ; font-family: Arial,sans-serif;  }
+     TD.List { font-size: 9pt ; margin: 0.2em  0.2em  0.2em  0.2em ; background-color: #eeeeee; font-family: Times New Roman,sans-serif;  }
+     TD.List OL.List { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; font-family: Times New Roman,sans-serif;  list-style-position: outside;  list-style-type: decimal;  }
+     TD.List UL.List { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; font-family: Times New Roman,sans-serif;  list-style-position: outside;  list-style-type: disc;  }
+     TD.normal-bold { font-size: 10pt ; margin: 0pt  0pt  1px  0.3930in ; font-family: Arial,sans-serif;  }
+     TD.page-no { font-size: 18pt ; font-weight: bold; text-align: center; margin: 0px  0px  1px  0.1965in ; font-family: Arial,sans-serif;  width: 100% top :54pt;  left: 370px;  position: absolute;  }
+     TD.TableHeading { font-size: 9pt ; font-weight: bold; margin: 0px  0px  1px  0px ; font-family: Times New Roman,sans-serif;  }
+     TD.TableList { font-size: 9pt ; margin: 0.2em  0.2em  0.2em  0.2em ; background-color: #eeeeee; font-family: Times New Roman,sans-serif;  }
+     TD.TableList OL.TableList { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; font-family: Times New Roman,sans-serif;  list-style-position: outside;  list-style-type: decimal;  }
+     TD.TableList UL.TableList { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; font-family: Times New Roman,sans-serif;  list-style-position: outside;  list-style-type: disc;  }
+     TD.TableText { font-size: 9pt ; margin: 0.2em  0.2em  0.2em  0.2em ; font-family: Times New Roman,sans-serif;  }
+     TD.TableText-8pt { font-size: 8pt ; margin: 0.2em  0.2em  0.2em  0.2em ; font-family: Times New Roman,sans-serif;  }
+     TD.TableText-8pt-RH { font-size: 8pt ; margin: 0.2em  0.2em  0.2em  0.2em ; font-family: Times New Roman,sans-serif;  }
+     td.Tabletext-centre { font-size: 9pt ; text-align: center; margin: 0pt  0pt  10px  0pt ; font-family: Times New Roman,sans-serif;  }
+     TD.Tabletext-heading { font-size: 9pt ; font-weight: bold; text-align: center; margin: 0px  0px  1px  0px ; font-family: Times New Roman,sans-serif;  }
+     .toc-1 { font-size: 14pt ; margin: 12pt  0pt  6pt  0pt ;  }
+     .toc-2 { font-size: 11pt ; text-decoration: underline ; margin: 3pt  0pt  3pt  0pt ;  }
+     .toc-4 { margin: 0pt  36pt  1px  108pt ;  }
+     .TOCTitle { font-size: 24pt ; margin: 9pt  0pt  7pt  0pt ;  }
+     UL OL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: upper-Alpha;  }
+     UL UL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: square;  }
+     UL.10-pt-bullet { font-size: 10pt ; margin: 0pt  0pt  1px  27pt ; font-family: Arial,sans-serif;  list-style-position: outside;  list-style-type: disc margin-left :-.5cm;  }
+     UL.bullet-1 { font-size: 12pt ; margin: 0em  0pt  1px  0.1965in ; font-family: Arial,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
+     UL.bullet-2 { font-size: 12pt ; margin: 0em  0pt  1px  0.3930in ; font-family: Arial,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
+     UL.hyphen1 { font-size: 10pt ; margin: 0em  0pt  0.3em  0.2951in ; font-family: Arial,sans-serif;  display: list-item;  list-style-image: url(EMDASH.gif);  list-style-position: outside;  }
+     UL.hyphen2 { font-size: 10pt ; margin: 0em  0pt  0.3em  0.4916in ; font-family: Arial,sans-serif;  display: list-item;  list-style-image: url(EMDASH.gif);  list-style-position: outside;  }
+     UL.List { font-size: 12pt ; margin: 0pt  0pt  1px  3em ; font-family: Times New Roman,sans-serif;  display: list-item;  }
+     UL.List-2 { font-size: 12pt ; margin: 0.3em  0pt  0.3em  27pt ; font-family: Times New Roman,sans-serif;  list-style-type: square;  }
+     UL.List-Table { font-size: 9pt ; margin: 0pt  0pt  1px  27pt ; background-color: #eeeeee; font-family: Times New Roman,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
+     UL.table-10-pt-bullet { font-size: 12pt ; margin: 0em  0pt  1px  0.1965in ; font-family: Arial,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
+     UL.warning-bullet { font-size: 12pt ; margin: 0em  0pt  1px  0.1965in ; font-family: Arial,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
+     UL.warning_bullet { font-size: 12pt ; margin: 0pt  0pt  1px  0.3930in ; font-family: Arial,sans-serif;  list-style-type: disc;  list-style-position: outside;  }
