@@ -4,6 +4,7 @@
             <div class="brand"><span class="brand-mark">VG</span><span>Vehicle Garage</span></div>
             <nav aria-label="Main navigation">
                 <RouterLink to="/garage" class="nav-link"><span>▦</span> Garage</RouterLink>
+                <RouterLink to="/manuals/honda-civic-2001-2005" class="nav-link manual-nav-link"><span>◇</span> Civic manual</RouterLink>
             </nav>
             <div class="sidebar-note"><span class="status-dot"></span><span>Local garage<br><small>Saved on this device</small></span></div>
         </aside>
