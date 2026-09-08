@@ -1,0 +1,36 @@
+{
+  "name": "vehicle_garage",
+  "version": "0.1.0",
+  "description": "Vite + Vue project, a vehicle twin identity follow management hosted on Vercel",
+  "keywords": [
+    "vehicle"
+  ],
+  "homepage": "https://github.com/csehg0312/vehicle_garage#readme",
+  "bugs": {
+    "url": "https://github.com/csehg0312/vehicle_garage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csehg0312/vehicle_garage.git"
+  },
+  "license": "MIT",
+  "author": "csehg0312",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.8",
+    "pinia": "^4.0.3",
+    "remeda": "^2.46.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
+  }
+}
