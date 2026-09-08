@@ -1,9 +1,11 @@
 import type { KnowledgeIndex } from '../../domain/knowledge'
 import { coolingKnowledge } from './cooling'
 import { hondaCivicCriticalSpecsElectronics } from './critical-specs-electronics'
+import { hondaCivicComponentKnowledge } from './components'
 
 export { coolingKnowledge } from './cooling'
 export { hondaCivicCriticalSpecsElectronics } from './critical-specs-electronics'
+export { hondaCivicComponentKnowledge } from './components'
 export { hondaCivicKnowledgeSources } from './sources'
 
 export const hondaCivicKnowledgeIndex: KnowledgeIndex = {
@@ -11,6 +13,7 @@ export const hondaCivicKnowledgeIndex: KnowledgeIndex = {
   entries: [
     ...coolingKnowledge.map(({ id }) => id),
     ...hondaCivicCriticalSpecsElectronics.map(({ id }) => id),
+    ...hondaCivicComponentKnowledge.map(({ id }) => id),
   ],
   sources: [
     'honda-civic-service-manual-2001-2005',

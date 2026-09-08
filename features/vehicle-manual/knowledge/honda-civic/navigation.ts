@@ -39,6 +39,18 @@ export const hondaCivicKnowledgeNavigation: KnowledgeNavigationModel = {
       ],
     },
     {
+      id: 'components',
+      title: 'Components',
+      description: 'Explore individual cooling-system components and their relationships.',
+      category: 'component',
+      entryIds: [
+        'radiator',
+        'thermostat',
+        'cooling-fan-switch',
+        'engine-coolant-temperature-sensor',
+      ],
+    },
+    {
       id: 'specifications',
       title: 'Specifications',
       description: 'Find capacities, service limits and critical workshop values.',
