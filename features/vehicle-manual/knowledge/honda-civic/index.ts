@@ -11,5 +11,6 @@ export const hondaCivicKnowledgeIndex: KnowledgeIndex = {
     'honda-civic-service-manual-2001-2005',
     'honda-civic-owner-manual-2001',
     'honda-civic-service-publication-2001-2005',
+    'honda-civic-d16v1-cooling-secondary',
   ],
 }
