@@ -454,6 +454,26 @@ function torqueLabel(item: TorqueSpecification) {
   font-weight: 700;
 }
 
+.compound-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+
+.inline-action {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--brand-soft);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .reference-grid input,
 .reference-grid select {
   width: 100%;
@@ -531,7 +551,9 @@ function torqueLabel(item: TorqueSpecification) {
   }
 
   .reference-grid input,
-  .reference-grid select {
+  .reference-grid select,
+  .inline-action {
+
     min-height: 44px;
     font-size: 16px;
   }
