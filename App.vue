@@ -4,6 +4,7 @@
             <div class="brand"><span class="brand-mark">VG</span><span>{{ t('brand.name') }}</span></div>
             <nav :aria-label="t('nav.main')">
                 <RouterLink to="/garage" class="nav-link"><span>▦</span> {{ t('nav.garage') }}</RouterLink>
+                <RouterLink to="/obd" class="nav-link"><span>⌁</span> OBD test</RouterLink>
                 <RouterLink to="/manuals/honda-civic-2001-2005" class="nav-link manual-nav-link"><span>◇</span> {{ t('nav.manual') }}</RouterLink>
             </nav>
             <div class="sidebar-note"><span class="status-dot"></span><span>{{ t('nav.local') }}<br><small>{{ t('nav.saved') }}</small></span></div>

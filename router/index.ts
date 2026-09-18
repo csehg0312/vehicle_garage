@@ -6,6 +6,7 @@ import ManualCoolingView from '../views/ManualCoolingView.vue';
 import KnowledgeHomeView from '../views/KnowledgeHomeView.vue';
 import KnowledgeEntryView from '../views/KnowledgeEntryView.vue';
 import FormView from '../views/FormView.vue';
+import ObdView from '../views/ObdView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,6 +27,10 @@ const router = createRouter({
     {
       path: "/vehicles/new",
       component: FormView,
+    },
+    {
+      path: "/obd",
+      component: ObdView,
     },
     {
       path: "/manuals/honda-civic-2001-2005",
