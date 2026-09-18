@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Vehicle } from '../models/vehicle'
+import { migrateTechnicalReference, type LegacyVehicleTechnicalReference } from '../models/technicalReferenceMigration'
 
 type NewVehicle = Omit<Vehicle, 'id' | 'manualUrl'>
 export const VEHICLES_STORAGE_KEY = 'vehicle-garage:vehicles'
@@ -34,9 +35,24 @@ function readStoredVehicles(): Vehicle[] {
 	if (typeof localStorage === 'undefined') return seededVehicles
 	try {
 		const value = JSON.parse(localStorage.getItem(VEHICLES_STORAGE_KEY) ?? 'null')
-		return Array.isArray(value) && value.every((vehicle) => isVehicle(vehicle)) ? value : seededVehicles
+		return Array.isArray(value)
+			? value.map(migrateVehicle).filter((vehicle): vehicle is Vehicle => vehicle !== undefined)
+			: seededVehicles
 	} catch {
 		return seededVehicles
+	}
+}
+
+function migrateVehicle(value: unknown): Vehicle | undefined {
+	if (!isVehicle(value)) return undefined
+
+	const vehicle = value as Vehicle & {
+		technicalReference?: LegacyVehicleTechnicalReference | Vehicle['technicalReference']
+	}
+
+	return {
+		...vehicle,
+		technicalReference: migrateTechnicalReference(vehicle.technicalReference),
 	}
 }
 
