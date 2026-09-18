@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package hondadrive.telemetry.v1;
+
+enum VehicleState {
+  VEHICLE_STATE_UNSPECIFIED = 0;
+  UNKNOWN = 1;
+  IDLE = 2;
+  ACCELERATION = 3;
+  CRUISING = 4;
+  DECELERATION = 5;
+  COASTING_NEUTRAL = 6;
+  HIGH_LOAD = 7;
+}
+
+enum TelemetryEventType {
+  TELEMETRY_EVENT_UNSPECIFIED = 0;
+  STATE_TRANSITION = 1;
+  VALIDATION = 2;
+  ANOMALY = 3;
+  SHIFT_CANDIDATE = 4;
+}
+
+message VehicleRef {
+  string vehicle_id = 1;
+  string profile_id = 2;
+}
+
+message TelemetrySample {
+  uint32 sequence = 1;
+  uint64 timestamp_ms = 2;
+  uint32 rpm_x10 = 3;
+  uint32 speed_kph_x10 = 4;
+  sint32 coolant_celsius_x10 = 5;
+  uint32 engine_load_percent_x10 = 6;
+  uint32 map_kpa_x10 = 7;
+  sint32 intake_air_celsius_x10 = 8;
+  uint32 throttle_percent_x10 = 9;
+  sint32 short_fuel_trim_percent_x10 = 10;
+  sint32 long_fuel_trim_percent_x10 = 11;
+  uint32 maf_g_per_s_x100 = 12;
+  uint32 fuel_level_percent_x10 = 13;
+  uint32 control_module_voltage_x100 = 14;
+  sint32 timing_advance_degrees_x10 = 15;
+  uint32 fuel_pressure_kpa_x10 = 16;
+}
+
+message StateEstimate {
+  uint64 timestamp_ms = 1;
+  VehicleState state = 2;
+  uint32 confidence_x1000 = 3;
+}
+
+message TelemetryEvent {
+  uint32 sequence = 1;
+  uint64 timestamp_ms = 2;
+  TelemetryEventType type = 3;
+  VehicleState state_from = 4;
+  VehicleState state_to = 5;
+  uint32 confidence_x1000 = 6;
+  string message = 7;
+}
+
+message TelemetryFrame {
+  string trip_id = 1;
+  VehicleRef vehicle = 2;
+  uint32 first_sequence = 3;
+  uint32 last_sequence = 4;
+  uint64 sent_at_ms = 5;
+  repeated TelemetrySample samples = 6;
+  repeated StateEstimate state_estimates = 7;
+  repeated TelemetryEvent events = 8;
+}
