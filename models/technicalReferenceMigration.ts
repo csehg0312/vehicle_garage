@@ -1,10 +1,5 @@
 import type {
-  ElectricalSpecification,
-  FastenerSpecification,
-  FluidSpecification,
-  MaintenanceSpecification,
   TechnicalSource,
-  TireSpecification,
   TorqueSpecification,
   VehicleTechnicalReference,
 } from './technicalReference'
@@ -135,8 +130,7 @@ export function migrateTechnicalReference(
     reference.tireSpecifications.push({
       id: 'legacy-tires',
       size: input.tireSizesPressures.trim(),
-      pressureBar: 1,
-      notes: 'Legacy value; pressure placeholder must be reviewed.',
+      notes: 'Legacy value; review and split size/pressure data.'
       source: legacySource,
     })
   }
