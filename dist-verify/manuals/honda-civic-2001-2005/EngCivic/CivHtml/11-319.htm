@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fuel and Emissions - Fuel and Emissions Systems</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="fuelandemissionssystems65"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>Fuel and Emissions Systems
+<H4 class=heading-4>System Descriptions (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-319</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=12pt-bold><B>ECM/PCM Data</B></P>
+
+<P>You can retrieve data from the ECM/PCM by connecting the scan tool or the Honda PGM Tester to the Data Link Connector (DLC).  The items listed in the table below conform to SAE recommended practice.  The Honda PGM Tester also reads data beyond that recommended by SAE so that this data may help you find the causes of intermittent problems.</P>
+
+<P>NOTE:
+
+<UL class=bullet-1>
+	<LI>The ''operating values'' listed are approximate and may vary depending on the environment and the individual vehicle.</LI>
+
+	<LI>Unless noted otherwise, ''at idle speed'' means idling with the engine completely warmed up, A/T in Park or neutral, M/T in neutral position, and the A/C and all accessories turned off.
+<TABLE border=1 cols=4 frame=box rules=all width=690>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext-heading width=21%><B>Data</B></TD>
+<TD><P class=tabletext-heading width=43%><B>Description</B></TD>
+<TD><P class=tabletext-heading width=23%><B>Operating Value</B></TD>
+<TD><P class=tabletext-heading width=13%><B>Freeze Data</B></TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Diagnostic Trouble Code (DTC)</TD>
+<TD><P class=tabletext width=43%>If the ECM/PCM detects a problem, it will store it as a code consisting of one letter and four numbers.  Depending on the problem, an SAE-defined code (P0xxx) or a Honda-defined code (P1xxx) will be output to the tester.</TD>
+<TD><P class=tabletext width=23%>If no problem is detected, there is no output.</TD>
+<TD><P class=tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Engine Speed</TD>
+<TD><P class=tabletext width=43%>The ECM/PCM computes engine speed from the signals sent from the Crankshaft Position (CKP) sensor.  This data is used for determining the time and amount of injected fuel.</TD>
+<TD><P class=tabletext width=23%>Nearly the same as tachometer indication
+<P class=tabletext>At idle speed: 650<U>+</U>50 rpm (min-1)</P>
+</TD>
+<TD><P class=tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Vehicle Speed</TD>
+<TD><P class=tabletext width=43%>The ECM/PCM converts pulse signals from Vehicle Speed Sensor (VSS).</TD>
+<TD><P class=tabletext width=23%>Nearly the same as speedometer indication</TD>
+<TD><P class=tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Manifold Absolute Pressure (MAP)</TD>
+<TD><P class=tabletext width=43%>The absolute pressure caused in the intake manifold by engine load and speed.</TD>
+<TD><P class=tabletext width=23%>With engine stopped: Nearly the same as atmospheric pressure
+<P class=tabletext>At idle speed: about 20-34 kPa (150-260 mmHg, 6-10 in.Hg), 0.7-1.1 V</P>
+</TD>
+<TD><P class=tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Engine Coolant Temperature (ECT)</TD>
+<TD><P class=tabletext width=43%>The ECT sensor converts coolant temperature into voltage and signals the ECM/PCM.  The sensor is a thermistor whose internal resistance changes with coolant temperature.  The ECM/PCM uses the voltage signals from the ECT sensor to determine the amount of injected fuel.</TD>
+<TD><P class=tabletext width=23%>With cold engine: Same as ambient temperature and IAT
+<P class=tabletext>With engine warmed up: about 80-100&deg;C (176-212&deg;F), 0.5-0.8 V</P>
+</TD>
+<TD><P class=tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top" class=bullet-1>
+<TD><P class=tabletext width=21%>Primary Heated Oxygen Sensor (Primary HO2S) (Sensor 1), Secondary Heated Oxygen Sensor (Secondary HO2S) (Sensor 2)</TD>
+<TD><P class=tabletext width=43%>The HO2S detects the oxygen content in the exhaust gas and sends voltage signals to the ECM/PCM.  Based on these signals, the ECM/PCM controls the air fuel ratio.  When the oxygen content is high (that is, when the ratio is leaner than the stoichiometric ratio), the voltage signal is lower.  When the oxygen content is low (that is, when the radio is richer than the stoichiometric ratio), the voltage signal is higher.</TD>
+<TD><P class=tabletext width=23%>0.0-1.25 V
+<P class=tabletext>At idle speed: about 0.1-0.9 V</P>
+</TD>
+<TD><P class=tabletext-centre width=13%>NO</TD>
+</TR>
+</TABLE>
+</LI>
+</UL>
+<div style="visibility:hidden"><a href="11-318.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="11-320.htm"></a><IMG SRC="grys_n.gif" BORDER=0><a href="11-0.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

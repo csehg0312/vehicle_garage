@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fuel and Emissions - PGM-FI System</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="pgm.fisystem63"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>PGM-FI System
+<H4 class=heading-4>DTC Troubleshooting (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-360</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-begin><table width=100%><tr><td width=49% align=Left valign=Top>
+<p><B>DTC P0108:</B> MAP Sensor Circuit High Voltage</P>
+
+
+
+<OL class=para1>
+	<LI>Start the engine.  Hold the engine at 3,000 rpm with no load (in Park or neutral) until the radiator fan comes on, then let it idle.</LI>
+
+	<LI>Check the MAP with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Is about 101 kPa (760 mmHg, 30 in.Hg) or higher, or about 2.9 V or higher indicated?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 3.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Intermittent failure, system is OK at this time.  Check for poor connections or loose wires at the MAP sensor and at the ECM/PCM.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=3>
+	<LI>Turn the ignition switch OFF.</LI>
+
+	<LI>Disconnect the MAP sensor 3P connector.</LI>
+
+	<LI>Connect the MAP sensor 3P connector terminals No. 2 and No. 3 with a jumper wire.</LI>
+</OL>
+
+<P class=normal-bold><B><center>MAP SENSOR 3P CONNECTOR</center></B></P>
+
+<P class=imgcenter><img src="11-360a25.gif"></P>
+
+<P class=normal-bold><B><center>JUMPER WIRE</center></B></P>
+
+<P><center>Wire side of female terminals</center></P>
+
+<OL class=para1 start=6>
+	<LI>Turn the ignition switch ON (II).</LI>
+
+	<LI>Check the MAP with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Is about 101 kPa (760 mmHg, 30 in.Hg) or higher, or about 2.9 V or higher indicated?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 8.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Replace the MAP sensor.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=8>
+	<LI>Remove the jumper wire.</LI>
+</OL>
+
+<P class=Double-column-flow></td><td width=2% align=Left valign=Top><img src="line1.gif" width=1 height=800></td><td width=49% align=Left valign=Top>
+<OL class=para1 start=9>
+<li>Measure voltage between the MAP sensor 3P connector terminals No. 1 and No. 3.</li></ol></P>
+
+<P class=normal-bold><B><center>MAP SENSOR 3P CONNECTOR</center></B></P>
+
+<P class=imgcenter><img src="11-360b25.gif"></P>
+
+<P><center>Wire side of female terminals</center></P>
+
+<P class=Italic><I>Is there about 5 V?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 10.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Repair open in the wire between the ECM/PCM (A11) and the MAP sensor.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=Para-10. start=10>
+	<LI>Turn the ignition switch OFF.</LI>
+
+	<LI>Connect ECM/PCM connector terminals A11 and A19 with a jumper wire.</LI>
+</OL>
+
+<P class=normal-bold><B><center>ECM/PCM CONNECTOR A (31P)</center></B></P>
+
+<P class=imgcenter><img src="11-360c25.gif"></P>
+
+<P class=normal-bold><B><center>JUMPER WIRE</center></B></P>
+
+<P><center>Wire side of female terminals</center></P>
+
+<OL class=Para-10. start=12>
+	<LI>Turn the ignition switch ON (II).</LI>
+
+	<LI>Check the MAP with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Is about 101 kPa (760 mmHg, 30 in.Hg) or higher, or about 2.9 V or higher indicated?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Substitute a known-good ECM/PCM and recheck (see page <a href="11-313.htm">11-313</a>).  If symptom/indication goes away, replace the original ECM/PCM.  <img src="sqr.gif"></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Repair open in the wire between the ECM/PCM (A19) and the MAP sensor.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-end></td></tr></table></P>
+<div style="visibility:hidden"><a href="11-359.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="11-361.htm"></a><IMG SRC="grys_n.gif" BORDER=0><a href="11-0.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

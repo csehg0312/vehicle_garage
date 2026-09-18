@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue';
 import ManualCoolingView from '../views/ManualCoolingView.vue';
 import KnowledgeHomeView from '../views/KnowledgeHomeView.vue';
 import KnowledgeEntryView from '../views/KnowledgeEntryView.vue';
+import FormView from '../views/FormView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -21,6 +22,10 @@ const router = createRouter({
       path: "/vehicles/:vehicleId",
       component: VehicleView,
       props: true,
+    },
+    {
+      path: "/vehicles/new",
+      component: FormView,
     },
     {
       path: "/manuals/honda-civic-2001-2005",

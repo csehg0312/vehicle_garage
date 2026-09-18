@@ -1,0 +1,18 @@
+<html>
+<head>
+<title> Test</title>
+</head>
+<script id="javascript">
+function loadwin(){
+url = location.href
+var lastSlash = url.lastIndexOf("/")
+var urlstr = url.substring(0, lastSlash + 1)
+
+
+var urlstr1 = urlstr + "helpset.htm"
+window.open(urlstr1,"win1","height=850,width=800,left=0,top=0,toolbar=false,menubar=false")
+}
+</script>
+<body onload="loadwin()">
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Steering - EPS Components</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="epscomponents3"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>EPS Components
+<H4 class=heading-4>General Troubleshooting Information</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>17-64</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-begin><table width=100%><tr><td width=49% align=Left valign=Top>
+<B>EPS Indicator</B></P>
+
+<P>Under normal conditions, the EPS indicator comes on when the ignition switch is turned to the ON (II) position, then goes off after the engine is started.  This indicates that the bulb and its circuit are operating correctly.</P>
+
+<P>If there is any trouble in the system after the engine is started, the EPS indicator will stay on, and the power assist is turned off.</P>
+
+<P>When EPS indicator light comes on, the control unit memorises the DTC.  In this case, the control unit will not activate the EPS system after the engine starts again, but it keeps the EPS indicator on.</P>
+
+<P>When DTC 16, 17, 18 or 67 is stored in the control unit, the EPS indicator will stay on until the DTC is erased.  When a problem is detected and the EPS indicator comes on, there are cases when the indicator stays on until the ignition switch is turned OFF, and cases when the indicator goes off automatically when the system return to normal.  Even though the system is operating normally, the EPS indicator will come on under the following conditions:
+
+<UL class=bullet-1>
+	<LI>When the vehicle is barely moving, 1 km/h (0.62 mph) or stopped, and the engine speed is 1,640 rpm (min<SUP>-1</SUP>) or higher for approximately 90 seconds.</LI>
+
+	<LI>When the engine speed is 280 rpm or less, and the vehicle is travelling at a speed of 10 km/h (6.2 mph) or more for 3 seconds.</LI>
+</UL>
+
+<P>To determine the actual cause of the problem, question the customer about the conditions during which the problem occurred, taking the above conditions into consideration.</P>
+
+<P class=normal-bold><B>Diagnostic Trouble Code (DTC)</B>
+
+<UL class=bullet-1>
+	<LI>If the CPU cannot be activated, or it fails, the EPS indicator comes on, but the DTC is not memorised.</LI>
+
+	<LI>The memory can hold any number of DTCs.  However, when the same DTC is detected more than once, the most recent DTC is written over the prior DTC, therefore only one occurrence is memorised.</LI>
+
+	<LI>The DTCs are indicated repeatedly until the ignition switch is turned OFF.</LI>
+
+	<LI>If the DTC is not memorised, the EPS indicator will stay on.</LI>
+
+	<LI>The DTCs are memorised in the EEPROM (non-volatile memory) therefore the memorised DTCs cannot be erased by disconnecting the battery.  Perform the specified procedures to clear DTCs.</LI>
+</UL>
+
+<P class=Double-column-flow></td><td width=2% align=Left valign=Top><img src="line1.gif" width=1 height=800></td><td width=49% align=Left valign=Top>
+<B>Self-diagnosis</B></P>
+
+<P>Self-diagnosis can be classified into two categories:
+
+<UL class=bullet-1>
+	<LI>Initial diagnosis: performed right after the engine starts and until the EPS indicator goes off.</LI>
+
+	<LI>Regular diagnosis: performed right after the initial diagnosis until the ignition switch is turned OFF.</LI>
+</UL>
+
+<P>The EPS control unit performs the following functions when a problem is detected by self-diagnosis:
+
+<OL class=para1>
+	<LI>Turns on the EPS indicator.</LI>
+
+	<LI>Memorises the DTC.</LI>
+
+	<LI>Stops power assist and manual steering operation begins.</LI>
+</OL>
+<P class=Block-text>NOTE:
+
+<UL class=bullet-2>
+	<LI>When DTC 23 (a problem with the circuit for engine speed signal) is detected, the power assist will return to normal when the vehicle speed is 10 km/h (0.62 mph) or above.</LI>
+
+	<LI>For DTCs 22, 23, 37, 41, 42, 43, 45, 47, 50, 51, 62, 68 or 69 the EPS indicator goes off automatically when the system returns to normal.  For all other codes, the EPS indicator goes off when the system is OK after the ignition switch is turned from OFF to ON (II).</LI>
+</UL>
+
+
+<P class=normal-bold><B>Restriction on Power Assist Operation</B></P>
+
+<P>Repeated extreme steering force, such as turning the steering wheel continuously back-and-forth with the vehicle stopped, causes an increase of power consumption in the EPS motor.  The increase of electric current causes the motor to heat up.  Because this heat adversely affects the system, the control unit monitors the electric current of the motor.</P>
+
+<P>When the control unit detects heat build-up in the motor, it reduces the electric current to the motor gradually to protect the system, and it restricts the power assist operation.  The EPS indicator does not come on during this function.</P>
+
+<P>When steering torque is not applied to the steering wheel, or when the ignition is turned off, the control unit will restore the power assist gradually until it's fully restored (after approximately 12 minutes maximum).</P>
+
+<P class=Double-column-end></td></tr></table></P>
+<div style="visibility:hidden"><a href="17-63.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="17-65.htm"></a><IMG SRC="grys_n.gif" BORDER=0><a href="17-1.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

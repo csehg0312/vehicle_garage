@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#993366">
+
+<P>
+<TABLE>
+<TR>
+<TD><FORM ACTION=POST><INPUT TYPE=BUTTON VALUE="Contents" ONCLICK="location = 'hh_toc.htm';" NAME="Help Topics"></FORM></TD>
+<TD><FORM ACTION=POST><INPUT TYPE=BUTTON VALUE="Index" ONCLICK="location = 'hh_index.htm';" NAME="Index"></FORM></TD>
+<TD><FORM ACTION=POST><INPUT TYPE=BUTTON VALUE="Locate" LANGUAGE="VBScript" ONCLICK="OnSync()" NAME="Synchronize"></FORM></TD>
+</TR>
+</TABLE>
+
+<P ALIGN=CENTER>
+<OBJECT id=hhctrl type="application/x-oleobject"
+        classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"
+        codebase="http://www.wextech.com/hhctrl/hhctrl.ocx#Version=4.72.7323"
+        width=90%
+        height=80%
+>
+    <PARAM name="Command" value="Contents">
+    <param name="flags" value="0x200,0x27">
+    <PARAM name="Item1" value="man25a.hhc">
+</OBJECT>
+</P>
+
+
+<SCRIPT LANGUAGE=VBScript>
+
+Function NormalizeURL(strURL)
+	strURL = LCase(strURL)
+	strURL = StringReplace(strURL, "\", "/")
+	strURL = StringReplace(strURL, "///", "/")
+	strURL = StringReplace(strURL, "//", "/")
+	
+	NormalizeURL = strURL
+
+End Function
+Function StringReplace(strSource, strSearch, strReplace)
+     Dim intPos, intLen
+     Dim strPrefix, strSuffix
+     
+     'position of search char within string
+     intPos = InStr(1, strSource, strSearch)
+     If intPos Then
+        Do While intPos > 0
+            intPos = InStr(intPos, strSource, strSearch)
+            intLen = Len(strSource)
+            strPrefix = Left(strSource, intPos - 1)
+            strSuffix = Right(strSource, intLen - (intPos + Len(strSearch) - 1))
+            strSource = strPrefix & strReplace & strSuffix
+            intPos = InStr(intPos + 1, strSource, strSearch)
+        Loop
+    End If
+    StringReplace = strSource
+End Function
+
+Function RightInStr(strSource, strSearch)
+	Dim intPos, intNextPos
+	Dim blnLastFound 
+
+	intPos = InStr(strSource, strSearch)
+	blnLastFound = 0
+	While intPos <> 0 And Not blnLastFound
+	    intNextPos = InStr(intPos + 1, strSource, strSearch)
+	    If intNextPos <> 0 Then
+	        intPos = intNextPos
+	    Else
+	        blnLastFound = -1
+	    End If
+	Wend
+	RightInStr = intPos
+End Function
+
+Sub OnSync()
+	Dim strBase, strTopic
+	Dim intPos, intNextPos
+	
+	' Extract base location from current document
+	strBase = NormalizeURL(document.location.toString)
+	intPos = RightInStr(strBase, "hh_toc.htm")
+	strBase = Left(strBase, intPos - 1)
+
+	'Get location of current topic
+	If Not IsNull(Parnet) And Not IsNull(Parent.right) And Not IsNull(hhctrl) Then
+		On Error Resume Next
+		strTopic = NormalizeURL(Parent.right.document.location.toString)
+		If InStr(strTopic, strBase) Then
+			' Current topic is relative to base
+			' Strip base from left hand side
+			strTopic = Right(strTopic, Len(strTopic) - Len(strBase))
+		End If
+
+		' Sync it in the table of contents
+		hhctrl.syncURL (strTopic)
+	End If
+End Sub
+
+Sub OnNewTopic()
+	If InStr(navigator.appName, "Microsoft")  Then
+		If Mid(navigator.appVersion, 1, 1) >= 4 Then
+			OnSync
+		End If
+	End If
+End Sub
+
+</SCRIPT>
+</BODY>
+</HTML>
+

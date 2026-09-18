@@ -1,0 +1,93 @@
+     .BoldPara { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "1. Bold Para"; }
+     .ptbold { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "12pt bold"; }
+     .pt { font-size: 7pt ; margin: 0pt  0pt  1px  0.0395in ; font-family: Arial,sans-serif;  fhname: "7pt"; }
+     .ptbullet { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Wingdings,sans-serif;  fhname: "8pt bullet"; }
+     .ptcentered { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "8pt centered"; }
+     .ptnormal { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "8pt normal"; }
+     .ptnormalbullet { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0.0986in ; font-family: Wingdings,sans-serif;  fhname: "8pt normal  bullet"; }
+     .ptnormalbullet1 { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0.0986in ; font-family: Wingdings,sans-serif;  fhname: "8pt normal bullet"; }
+     .BannerBase { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Banner Base"; }
+     .Base { font-size: 10pt ; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  }
+     .Blockindent { font-size: 10pt ; margin: 0pt  0pt  1px  0.6888in ; font-family: Arial,sans-serif;  fhname: "Block indent"; }
+     .Blockindentbold { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.6888in ; font-family: Arial,sans-serif;  fhname: "Block indent bold"; }
+     .Blocktext { font-size: 10pt ; margin: 0pt  0pt  1px  0.3937in ; font-family: Arial,sans-serif;  fhname: "Block text"; }
+     .BodyCentre { font-size: 10pt ; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Body Centre"; }
+     .BodyCentreBold { font-size: 10pt ; font-weight: bold; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Body Centre Bold"; }
+     .BodyrhBold { font-size: 10pt ; font-weight: bold; text-align: right; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Body rh Bold"; }
+     .BodyRHside { font-size: 10pt ; text-align: right; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Body RH side"; }
+     .BodyText { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Body Text"; }
+     .boldindent { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.3937in ; font-family: Arial,sans-serif;  fhname: "bold indent"; }
+     .bullet1 { font-size: 10pt ; margin: 0pt  0pt  1px  18pt ; text-indent: -18pt ; font-family: Arial,sans-serif;  }
+     .bullet2 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  }
+     .Bullet3 { font-size: 10pt ; margin: 0pt  0pt  1px  27pt ; text-indent: -27pt ; font-family: Arial,sans-serif;  }
+     .Bullet4 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Bullet5 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .ButtonBar { font-size: 6pt ; font-weight: bold; margin: 0pt  0pt  1px  -0.1in ; font-family: Arial,sans-serif;  fhname: "Button Bar"; }
+     .columndoublebegin { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "column double begin"; }
+     .columndoubleend { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "column double end"; }
+     .columndoubleflow { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "column double flow"; }
+     .D2HNoGloss { font-family: Times New Roman,sans-serif;  fhtype: character; }
+     .DefaultParagraphFont {  fhname: "Default Paragraph Font"; fhtype: character; }
+     .Definition { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .Doublecolumnbegin { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Double column begin"; }
+     .Doublecolumnend { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Double column end"; }
+     .Doublecolumnflow { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Double column flow"; }
+     .footnotereference { font-size: 8pt ; font-family: Times New Roman,sans-serif;  fhname: "footnote reference"; fhtype: character; }
+     .HeadingBase { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Heading Base"; }
+     .Headingright { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Heading right"; }
+     .HTML { color: #008000; font-family: Times New Roman,sans-serif;  fhtype: character; }
+     .Hyphen { font-size: 10pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  }
+     .hyphen1 { font-size: 10pt ; margin: 0pt  0pt  1px  0.6888in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  }
+     .hyphen2 { font-size: 10pt ; margin: 0pt  0pt  1px  0.9840in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  }
+     .imgcenter { font-size: 10pt ; color: #ff00ff; text-align: center; margin: 6pt  0pt  6pt  0pt ; font-family: Arial,sans-serif;  }
+     .imgcentre { font-size: 10pt ; color: #ff00ff; text-align: center; margin: 6pt  0pt  6pt  0.0986in ; font-family: Arial,sans-serif;  }
+     .imgleft { font-size: 10pt ; color: #ff00ff; margin: 6pt  0pt  6pt  0.0986in ; font-family: Arial,sans-serif;  }
+     .imgwire { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .IndexText { font-size: 11pt ; font-weight: bold; margin: 0pt  0pt  12pt  0.0986in ; font-family: Arial,sans-serif;  fhname: "Index Text"; }
+     .inlineimg { font-family: Times New Roman,sans-serif;  fhtype: character; }
+     .IntroIndex { font-size: 14pt ; font-weight: bold; text-align: right; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Intro Index"; }
+     .Italic { font-size: 10pt ; font-style: italic; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .Jump { font-size: 10pt ; text-decoration: underline ; color: #ff00ff; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .JumpBase { font-size: 10pt ; text-decoration: underline ; margin: 0pt  0pt  3pt  0.0986in ; font-family: Arial,sans-serif;  fhname: "Jump Base"; }
+     .JumpfromList { font-size: 10pt ; text-decoration: underline ; margin: 0pt  0pt  3pt  0.0986in ; font-family: Arial,sans-serif;  fhname: "Jump from List"; }
+     .keylegend { font-size: 8pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "key legend"; }
+     .L1 { font-size: 10pt ; font-weight: bold; font-family: Wingdings,sans-serif;  fhname: "L#1"; fhtype: character; }
+     .Lettersbold { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "Letters bold"; }
+     .Makejump { font-size: 10pt ; color: #0000ff; font-family: Arial,sans-serif;  fhname: "Make jump"; fhtype: character; }
+     .NormablBold12pt { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Normabl Bold 12pt"; }
+     .Normal { font-size: 10pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .normalbold { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "normal bold"; }
+     .NormalBold12pt { font-size: 12pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  fhname: "Normal Bold 12pt"; }
+     .Number1 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number2 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number3 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number4 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .Number5 { font-size: 10pt ; margin: 0pt  0pt  1px  0pt; font-family: Arial,sans-serif;  }
+     .pageno { font-size: 18pt ; font-weight: bold; text-align: center; margin: 0pt  0pt  6pt  0pt ; font-family: Arial,sans-serif;  fhname: "page no"; }
+     .Para1letters { font-size: 10pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "Para 1 letters"; }
+     .Para10 { font-size: 10pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "Para 10."; }
+     .Para2letters { font-size: 10pt ; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Para 2 letters"; }
+     .para1 { font-size: 10pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  }
+     .para2 { font-size: 10pt ; margin: 0pt  0pt  1px  0.6888in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  }
+     .Pic10 { font-size: 8pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "Pic 10."; }
+     .piclegend { font-size: 8pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "pic legend"; }
+     .Pickeylegendindent { font-size: 8pt ; margin: 0pt  0pt  1px  0.3937in ; font-family: Arial,sans-serif;  fhname: "Pic/key legend indent"; }
+     .Pickeyletters { font-size: 8pt ; margin: 0pt  0pt  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "Pic/key letters"; }
+     .RH4 { font-size: 10pt ; font-weight: bold; margin: 3pt  0pt  3pt  0.0986in ; font-family: Arial,sans-serif;  fhname: "RH 4"; }
+     .Seepages { font-size: 10pt ; margin: 0pt  0.3937in  1px  0.3937in ; border: thin solid ; font-family: Arial,sans-serif;  fhname: "See pages"; }
+     .table10ptbullet { font-size: 10pt ; margin: 0pt  0pt  1px  17pt ; text-indent: -0.1965in ; font-family: Arial,sans-serif;  fhname: "table 10 pt bullet"; }
+     .table10ptnumbers { font-size: 10pt ; margin: 0pt  0pt  1px  17pt ; text-indent: -0.1965in ; font-family: Arial,sans-serif;  fhname: "table 10pt numbers"; }
+     .Tablebold10pt { font-size: 10pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0395in ; font-family: Arial,sans-serif;  fhname: "Table bold 10pt"; }
+     .table8ptC { font-size: 8pt ; text-align: center; margin: 0pt  0pt  1px  0.0395in ; font-family: Arial,sans-serif;  }
+     .table8ptext { font-size: 8pt ; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .table8ptHd { font-size: 8pt ; font-weight: bold; margin: 0pt  0pt  1px  0.0986in ; font-family: Arial,sans-serif;  }
+     .TableHeading { font-size: 10pt ; font-weight: bold; margin: 3pt  0.05in  3pt  0.05in ; font-family: Arial,sans-serif;  }
+     .TableText { font-size: 9pt ; margin: 2pt  0.05in  2pt  0.05in ; font-family: Arial,sans-serif;  }
+     .tabletext8pt { font-size: 8pt ; margin: 0pt  0pt  1px  0.0395in ; font-family: Arial,sans-serif;  fhname: "tabletext 8pt"; }
+     .Tabletext8ptRH { font-size: 8pt ; text-align: right; margin: 0pt  0.0395in  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Tabletext 8pt RH"; }
+     .Tabletextcentre { font-size: 10pt ; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Tabletext centre"; }
+     .Tabletextheading { font-size: 10pt ; font-weight: bold; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "Tabletext heading"; }
+     .warningbody { font-size: 10pt ; font-weight: bold; margin: 6pt  0.3937in  6pt  0.0986in ; font-family: Arial,sans-serif;  fhname: "warning body"; }
+     .warningbullet { font-size: 10pt ; font-weight: bold; margin: 0pt  0.3937in  1px  0.3937in ; text-indent: -0.2951in ; font-family: Arial,sans-serif;  fhname: "warning bullet"; }
+     .warningcaution { font-size: 14pt ; font-weight: bold; color: #ffffff; text-align: center; margin: 0pt  0pt  1px  0pt ; font-family: Arial,sans-serif;  fhname: "warning_caution"; }
+     div{visibility:hidden;}

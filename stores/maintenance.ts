@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia'
+
 export type MaintenanceCategoryName = 'Engine' | 'Transmission' | 'Brakes' | 'Suspension' | 'Electrical' | 'Cooling System' | 'Fuel System' | 'Exhaust System' | 'Body & Interior' | 'Tires & Wheels' | 'Other'
 
 export interface MaintenanceCategory {
@@ -15,10 +17,15 @@ export interface MaintenanceRecord {
   description: string
   cost: number
   performedBy: 'owner' | 'workshop'
+  partsFluids?: string
+  nextServiceDue?: string
+  receiptUrl?: string
   notes?: string
 }
 
-export const maintenanceRecords: MaintenanceRecord[] = [
+export const MAINTENANCE_STORAGE_KEY = 'vehicle-garage:maintenance'
+
+const seededMaintenanceRecords: MaintenanceRecord[] = [
   {
     id: 'maintenance-1',
     vehicleId: 'honda-civic',
@@ -40,3 +47,27 @@ export const maintenanceRecords: MaintenanceRecord[] = [
     performedBy: 'workshop',
   },
 ]
+
+export const maintenanceRecords = seededMaintenanceRecords
+
+function readStoredRecords(): MaintenanceRecord[] {
+	if (typeof localStorage === 'undefined') return seededMaintenanceRecords.map((record) => ({ ...record, category: { ...record.category } }))
+	try {
+		const value = JSON.parse(localStorage.getItem(MAINTENANCE_STORAGE_KEY) ?? 'null')
+		return Array.isArray(value) ? value : seededMaintenanceRecords.map((record) => ({ ...record, category: { ...record.category } }))
+	} catch {
+		return seededMaintenanceRecords.map((record) => ({ ...record, category: { ...record.category } }))
+	}
+}
+
+export const useMaintenanceStore = defineStore('maintenance', {
+	state: () => ({ records: readStoredRecords() }),
+	actions: {
+		addRecord(record: Omit<MaintenanceRecord, 'id'>) {
+			if (!record.vehicleId || !record.date || !record.description.trim() || record.odometer < 0 || record.cost < 0) throw new Error('Date, description, odometer, and cost are required')
+			const newRecord = { ...record, id: `maintenance-${Date.now()}` }
+			this.records.unshift(newRecord)
+			return newRecord
+		},
+	},
+})

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fuel and Emissions - PGM-FI System</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000>
+
+<P><A NAME="pgm.fisystem13"></A></P>
+
+<TABLE border=1 cols=3 frame=below rules=none width=707>
+
+<TR VALIGN="top">
+<TD class=heading-2 width=40%>
+<H2 class=heading-2>PGM-FI System
+<H4 class=heading-4>DTC Troubleshooting (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-68</B></TD>
+<TD class=Heading-right width=41%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-begin><table width=100%><tr><td width=49% align=Left valign=Top>
+<p><B>DTC P0131: Primary HO2S (Sensor 1) Circuit Low Voltage</B></P>
+
+
+
+<OL class=para1>
+	<LI>Reset the ECM/PCM (see page <a href="11-4.htm">11-4</a>).</LI>
+
+	<LI>Start the engine.  Hold the engine at 3,000 rpm (min-1) with no load (in Park or neutral) until the radiator fan comes on.</LI>
+
+	<LI>Check the primary HO2S (Sensor 1) output voltage with the scan tool during acceleration using wide open throttle.</LI>
+</OL>
+
+<P class=Italic><I>Does the voltage stay at 0.5 V or less?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 4.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Intermittent failure, system is OK at this time.  Check for poor connections or loose wires at the primary HO2S (Sensor 1) and at the ECM/PCM.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=4>
+	<LI>Check the fuel pressure (see page <a href="11-131.htm">11-131</a>).</LI>
+</OL>
+
+<P class=Italic><I>Is it normal?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 5.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Repair the fuel supply system.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<OL class=para1 start=5>
+	<LI>Turn the ignition switch OFF.</LI>
+
+	<LI>Disconnect the primary HO2S (Sensor 1) 4P connector.</LI>
+
+	<LI>Turn the ignition switch ON (II).</LI>
+
+	<LI>Check the primary HO2S (Sensor 1) output voltage with the scan tool.</LI>
+</OL>
+
+<P class=Italic><I>Does it stay at 0.5 V or less?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Go to step 9.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Replace the primary HO2S (Sensor 1).  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-flow></td><td width=2% align=Left valign=Top><img src="line1.gif" width=1 height=800></td><td width=49% align=Left valign=Top>
+<OL class=para1 start=9>
+<li>Turn the ignition switch OFF.</li></ol>
+
+<OL class=Para-10. start=10>
+	<LI>Disconnect ECM/PCM connector A (31P).</LI>
+
+	<LI>Check for continuity between the primary HO2S (Sensor 1) 4P connector terminal No. 2 and body ground.</LI>
+</OL>
+
+<P class=normal-bold><B><center>PRIMARY HO2S (SENSOR 1) 4P CONNECTOR</center></B></P>
+
+<P class=imgcenter><img src="11-68a25.gif"></P>
+
+<P>Terminal side of male terminals</P>
+
+<P class=Italic><I>Is there continuity?</I></P>
+
+<TABLE cols=2 width=341>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>YES</B></TD>
+<TD><P class=tabletext width=81%>- Repair short in the wire between the ECM/PCM (A6) and the primary HO2S (Sensor 1).  <img src="sqr.gif"></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><P class=bold-indent width=19%><B>NO</B></TD>
+<TD><P class=tabletext width=81%>- Substitute a known-good ECM/PCM and recheck (see page <a href="11-6.htm">11-6</a>).  If symptom/indication goes away, replace the original ECM/PCM.  <img src="sqr.gif"></TD>
+</TR>
+</TABLE><BR>
+
+<P class=Double-column-end></td></tr></table></P>
+<div style="visibility:hidden"><a href="11-67.htm"></a><IMG SRC="grys_p.gif" BORDER=0><a href="11-69.htm"></a>
+<IMG SRC="grys_n.gif" BORDER=0><a href="11-0.htm"></a></div>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

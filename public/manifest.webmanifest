@@ -1,0 +1,9 @@
+{
+  "name": "Vehicle Garage",
+  "short_name": "Garage",
+  "start_url": "/garage",
+  "display": "standalone",
+  "background_color": "#f3f5ef",
+  "theme_color": "#173b32",
+  "description": "Personal vehicle ownership journal"
+}

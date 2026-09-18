@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<LINK REL="stylesheet" TYPE="text/css" HREF="Ie4only.css">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>11-11</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff onload="if (parent != null) {if (parent.left != null) {parent.left.OnNewTopic();}}" text=#000000>
+
+<P><A NAME="11.11"></A></P>
+
+<TABLE width=707 frame=below rules=none>
+
+<TR VALIGN="top">
+<TD class=heading-2 colspan=2 width=40%>
+<H2 class=heading-2>Fuel and Emissions Systems
+<H4 class=heading-4>System Descriptions (cont'd)</H4>
+</H2>
+</TD>
+<TD class=page-no width=19%><B>11-11</B></TD>
+<TD class=Heading-right colspan=4 width=41%>&nbsp;</TD>
+</TR></table><br><table border=1 width=690>
+
+<TR VALIGN="top">
+<TD class=Tabletext-heading width=18%><B>Data</B></TD>
+<TD class=Tabletext-heading colspan=3 width=45%><B>Description</B></TD>
+<TD class=Tabletext-heading width=22%><B>Operating Value</B></TD>
+<TD class=Tabletext-heading width=13%><B>Freeze Data</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Fuel System Status</TD>
+<TD class=tabletext colspan=3 width=45%>Fuel system status is indicated as ''open'' or ''closed''.
+<P class=tabletext>Closed: Based on the HO2S output, the ECM determines the air/fuel ratio and controls the amount of injected fuel.</P>
+
+<P class=tabletext>Open: ignoring HO2S output, the ECM refers to signals from the Throttle Position (TP), Manifold Absolute Pressure (MAP), Intake Air Temperature (IAT), Barometric Pressure (BARO) and Engine Coolant Temperature (ECT)) sensors to control the amount of injected fuel.</P>
+</TD>
+<TD class=tabletext width=22%>At idle speed: closed</TD>
+<TD class=Tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Short Term Fuel Trim</TD>
+<TD class=tabletext colspan=3 width=45%>The air/fuel ratio correction coefficient for correcting the amount of injected fuel when the Fuel System Status is ''closed.'' When the ratio is leaner than the stoichiometric ratio, the ECM increases short term fuel trim gradually, and the amount of injected fuel increases. The air/fuel ratio gradually gets richer, causing a lower oxygen content in the exhaust gas. Consequently, the short term fuel trim is lowered, and the ECM reduces the amount of injected fuel.
+<P class=tabletext>This cycle keeps the air/fuel ratio close to the stoichiometric ratio when in closed loop status.</P>
+</TD>
+<TD class=tabletext width=22%>0.6 - 1.5</TD>
+<TD class=Tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Long Term Fuel Trim</TD>
+<TD class=tabletext colspan=3 width=45%>Long term fuel trim is computed from short term fuel trim and indicates changes occurring in the fuel supply system over a long period.
+<P class=tabletext>If long term fuel trim is higher than 1.00, the amount of injected fuel must be increased. If it is lower than 1.00, the amount of injected fuel must be reduced.</P>
+</TD>
+<TD class=tabletext width=22%>0.8 - 1.2</TD>
+<TD class=Tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Intake Air Temperature (IAT)</TD>
+<TD class=tabletext colspan=3 width=45%>The IAT sensor converts intake air temperature into voltage and signals the ECM. When intake air temperature is low, the internal resistance of the sensor increases, and the voltage signal is higher.</TD>
+<TD class=tabletext width=22%>With cold engine:
+<P class=tabletext>Same as ambient temperature and ECT</P>
+</TD>
+<TD class=Tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Throttle Position</TD>
+<TD class=tabletext colspan=3 width=45%>Based on the accelerator pedal position, the opening angle of the throttle valve is indicated.</TD>
+<TD class=tabletext width=22%>At idle speed:
+<P class=tabletext>about 10 %, 0.5 V</P>
+</TD>
+<TD class=Tabletext-centre width=13%>YES</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD class=tabletext width=18%>Ignition Timing</TD>
+<TD class=tabletext colspan=3 width=45%>Ignition timing is the ignition advance angle set by the ECM. The ECM matches ignition timing to the driving conditions.</TD>
+<TD class=tabletext width=22%>At idle speed: 8&deg; <U>+</U> 2&deg;
+<P class=tabletext>BTDC when the SCS short connector is connected</P>
+</TD>
+<TD class=Tabletext-centre width=13%>NO</TD>
+</TR>
+</TABLE><BR>
+
+<P><div style={visibility:hidden}><a href ="11-10.htm">a</a><a href ="11-12.htm">a</a><a href ="11-1.htm">a</a></div></P>
+<SCRIPT LANGUAGE=JavaScript>
+//
+//This dummy block is required to prevent a JavaScript error
+//in some versions of Internet Explorer 4.0.
+//
+</SCRIPT>
+
+</BODY>
+</HTML>

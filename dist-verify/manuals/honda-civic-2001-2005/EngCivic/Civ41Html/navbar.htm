@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+
+<script id="ClientEventHandlersJS" language="javascript">
+
+var cont = 0
+function far_onclick(){
+cont=0
+var ln1 = window.parent.frames('content').document.links.length - 2
+document.images[3].src="b_prevpage.png"
+if(window.parent.frames("content").document.location.href == window.parent.frames("content").document.links[ln1]) {
+document.images[4].src="b_nextpage_x.png" }
+else{
+document.images[4].src="b_nextpage.png"
+window.parent.frames('content').location = window.parent.frames('content').document.links[ln1]
+}
+}
+
+
+function EX1_onclick(){
+
+parent.window.close()
+}
+
+
+
+
+
+function bac_onclick(){
+cont=0
+var ln0 = window.parent.frames('content').document.links.length - 3
+document.images[4].src="b_nextpage.png"
+if(window.parent.frames("content").document.location.href == window.parent.frames("content").document.links[ln0]) {
+document.images[3].src="b_prevpage_x.png" }
+else{
+document.images[3].src="b_prevpage.png"
+window.parent.frames('content').location = window.parent.frames('content').document.links[ln0]
+}
+}
+function home1_onclick(){
+cont=0
+url = location.href
+var lastSlash = url.lastIndexOf("/")
+
+var urlstr = url.substring(0, lastSlash)
+lastSlash = urlstr.lastIndexOf("/")
+var urlstr2 = urlstr.substring(0, lastSlash + 1)
+var urlstr1 = urlstr2 + "body.htm"
+var ln3 = window.parent.frames('content').document.links.length - 1
+document.images[4].src="b_nextpage.png"
+document.images[3].src="b_prevpage.png"
+//window.parent.frames('content').location = window.parent.frames("content").document.links[ln3]
+window.parent.location = urlstr1
+}
+function hom_onclick(){
+cont=0
+url = location.href
+
+var lastSlash = url.lastIndexOf("/")
+var urlstr = url.substring(0, lastSlash +1)
+var urlstr1 = urlstr + "helpset.htm"
+var ln3 = window.parent.frames('content').document.links.length - 1
+
+document.images[4].src="b_nextpage.png"
+document.images[3].src="b_prevpage.png"
+window.parent.frames('content').location = window.parent.frames("content").document.links[ln3]
+//window.parent.location = urlstr1
+}
+function prn_onclick(){
+chkzoom()
+self.parent.frames[1].focus()
+self.parent.frames[1].print()
+}
+
+function chkzoom(){
+
+if (cont == 1) {
+cont = 0
+window.parent.frames("content").document.location = window.parent.frames("content").document.location.href
+}
+
+
+}
+function his_onclick(){
+self.parent.frames[1].history.back()
+}
+function z1_onclick(){
+
+if (cont == 0 ) {
+cont=1
+for (var i = 0; i <= window.parent.frames("content").document.images.length; i++){
+window.parent.frames("content").document.images[i].height = window.parent.frames("content").document.images[i].height * 1.3;
+window.parent.frames("content").document.images[i].width = window.parent.frames("content").document.images[i].width * 1.3;}
+}
+else
+{
+cont = 0
+window.parent.frames("content").document.location = window.parent.frames("content").document.location.href
+}
+}
+</script>
+</HEAD>
+<BODY LEFTMARGIN=6 BGCOLOR="#c0c0c0" >
+<TABLE BORDER=0 WIDTH="100%">
+<TR>
+<TD ALIGN="LEFT" WIDTH=0>
+<IMG id="hom" name="hom" SRC="uplevel.png" alt="Up a level" BORDER=0 ALIGN="BOTTOM" onclick="return hom_onclick()">
+<IMG id="prn" name="prn" SRC="print.png" alt="Print" BORDER=0 ALIGN="BOTTOM" onclick="return prn_onclick()">
+<!--<A HREF="javascript:parent.frames[1].history.back()">--><IMG id="his" name="his" SRC="lastview.png" alt="Back" BORDER=0 ALIGN="BOTTOM" onclick="return his_onclick()"><!--</A> -->
+
+<IMG id="bac" name="bac" alt="Previous Page" SRC="b_prevpage.png" BORDER=0 ALIGN="BOTTOM" onclick="return bac_onclick()">
+<IMG id="far" name="far" alt="Next Page" SRC="b_nextpage.png" BORDER=0 ALIGN="BOTTOM" onclick="return far_onclick()">
+<A HREF="search.htm" TARGET="content"><IMG id="src" name="src" SRC="search.png" alt="Search" BORDER=0 ALIGN="BOTTOM"></A>
+<A HREF="cnts.htm" TARGET="content"><IMG alt="Contents" SRC="contts.png" BORDER=0 ALIGN="BOTTOM"></A>
+<A HREF="keyindex.htm" TARGET="content"><IMG alt="Index" SRC="indx.png" BORDER=0 ALIGN="BOTTOM"></A>
+<img id=z1 name=z1 src="Zoom.png" alt="Zoom" onclick="return z1_onclick()">
+<IMG id=home1 name=home1  alt="Return to main screen" SRC="main_button.png" onclick="return home1_onclick()" BORDER=0 ALIGN="BOTTOM">
+
+<img id=EX1 alt="exit" name=Ex1 src="Exit.png" onclick="return EX1_onclick()" align="Bottom" style="position:absolute; right:0px; ">
+
+</TD></TR></TABLE>
+<span style="position:absolute; left:0px; bottom:0px; z-index:50"><img src="finger.png" height="7" width=102%></span></BODY></HTML>
