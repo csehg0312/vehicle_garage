@@ -130,7 +130,7 @@ export function migrateTechnicalReference(
     reference.tireSpecifications.push({
       id: 'legacy-tires',
       size: input.tireSizesPressures.trim(),
-      notes: 'Legacy value; review and split size/pressure data.'
+      notes: 'Legacy value; review and split size/pressure data.',
       source: legacySource,
     })
   }
