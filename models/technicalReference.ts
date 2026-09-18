@@ -149,9 +149,6 @@ export interface VehicleTechnicalReference {
 const isPositive = (value: number | undefined): boolean =>
   value === undefined || (Number.isFinite(value) && value > 0)
 
-const isNonNegative = (value: number | undefined): boolean =>
-  value === undefined || (Number.isFinite(value) && value >= 0)
-
 const nonEmpty = (value: string): boolean => value.trim().length > 0
 
 export function validateTorqueSpecification(spec: TorqueSpecification): string[] {
@@ -165,8 +162,8 @@ export function validateTorqueSpecification(spec: TorqueSpecification): string[]
     errors.push('torque value must be positive')
   }
 
-  if (!spec.torque && (!spec.stages || spec.stages.length === 0) && spec.finalAngleDeg === undefined) {
-    errors.push('torque, stages, or final angle is required')
+  if (!spec.torque && (!spec.stages || spec.stages.length === 0)) {
+    errors.push('torque or stages is required')
   }
 
   if (spec.finalAngleDeg !== undefined && !isPositive(spec.finalAngleDeg)) {
