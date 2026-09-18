@@ -86,6 +86,7 @@ describe('VehicleView', () => {
     expect(wrapper.find('.detail-heading h2').text()).toBe('Honda Civic')
     expect(wrapper.find('.back-link').exists()).toBe(true)
     expect(wrapper.find('.heading-actions').exists()).toBe(true)
+    expect(wrapper.find('.technical-reference-action').exists()).toBe(true)
   })
 
   it('keeps the vehicle overview compact enough to form a mobile-first page hierarchy', () => {
