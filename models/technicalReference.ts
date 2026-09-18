@@ -249,14 +249,6 @@ export function validateTireSpecification(spec: TireSpecification): string[] {
   if (!isPositive(spec.pressurePsi)) errors.push('pressurePsi must be positive')
   if (!isPositive(spec.pressureBar)) errors.push('pressureBar must be positive')
 
-  if (
-    spec.pressureKpa === undefined &&
-    spec.pressurePsi === undefined &&
-    spec.pressureBar === undefined
-  ) {
-    errors.push('at least one pressure value is required')
-  }
-
   return errors
 }
 
