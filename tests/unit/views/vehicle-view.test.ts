@@ -26,7 +26,14 @@ const vehicle = {
     drivetrain: 'FWD',
     fuelEconomyCombinedL100: 6.8,
   },
-  technicalReference: {},
+  technicalReference: {
+    torqueSpecifications: [],
+    fluidSpecifications: [],
+    maintenanceSpecifications: [],
+    tireSpecifications: [],
+    electricalSpecifications: [],
+    fastenerSpecifications: [],
+  },
   diagnoses: [],
   modifications: [],
 }
