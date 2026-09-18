@@ -75,7 +75,7 @@ describe('technical reference domain', () => {
       expect(errors).toContain('stage steps must be positive integers')
     })
 
-    it('supports a sequence-only tightening instruction when no numeric torque exists', () => {
+    it('requires a torque value or staged tightening data', () => {
       const errors = validateTorqueSpecification({
         id: 'special',
         system: 'body',
@@ -84,7 +84,7 @@ describe('technical reference domain', () => {
         sequence: ['A', 'B'],
       })
 
-      expect(errors).toEqual([])
+      expect(errors).toContain('torque or stages is required')
     })
   })
 
