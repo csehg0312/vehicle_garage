@@ -77,7 +77,7 @@ describe('TechnicalReferenceEditor', () => {
         expect.objectContaining({
           component: '',
           fastener: '',
-          stages: [],
+          stages: [{ step: 1 }],
         }),
       ],
     })
