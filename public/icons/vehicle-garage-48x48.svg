@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 512 512" fill="none">
+  <title>Vehicle Garage — Digital Twin</title>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="20" x2="430" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#063B35"/>
+      <stop offset="0.55" stop-color="#075247"/>
+      <stop offset="1" stop-color="#021E1B"/>
+    </linearGradient>
+    <linearGradient id="car" x1="160" y1="295" x2="360" y2="405" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DCE9E6"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="160" y1="250" x2="390" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B7FF58"/>
+      <stop offset="1" stop-color="#38E86B"/>
+    </linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="86" fill="url(#bg)"/>
+
+  <!-- subtle glass rim -->
+  <rect x="3" y="3" width="506" height="506" rx="83" stroke="#22D49A" stroke-opacity=".24" stroke-width="6"/>
+
+  <!-- garage -->
+  <path d="M92 230 L256 118 L420 230" stroke="#24B982" stroke-width="24" stroke-linejoin="round" opacity=".8"/>
+  <path d="M112 226 V382 M400 226 V382" stroke="#0A7C68" stroke-width="13" opacity=".8"/>
+  <path d="M137 224 H375" stroke="#0B685B" stroke-width="13" stroke-linecap="round"/>
+  <path d="M151 260 H361 M151 289 H345 M151 318 H320" stroke="#0B7765" stroke-width="13" stroke-linecap="round" opacity=".8"/>
+
+  <!-- maintenance wrench -->
+  <g opacity=".95" transform="translate(92 253) scale(.8)">
+    <path d="M37 17 A23 23 0 0 0 10 46 L42 78 L57 63 L25 31 A23 23 0 0 0 37 17Z" fill="#56E889"/>
+    <path d="M48 62 L80 94" stroke="#56E889" stroke-width="15" stroke-linecap="round"/>
+    <circle cx="86" cy="100" r="10" fill="#56E889"/>
+  </g>
+
+  <!-- digital twin vehicle -->
+  <g stroke="url(#lime)" stroke-width="9" stroke-dasharray="16 12" stroke-linecap="round" opacity=".95">
+    <path d="M185 333 L205 283 Q214 265 236 265 H312 Q335 265 345 283 L364 333"/>
+    <path d="M174 333 H371 Q389 333 389 351 V382 Q389 398 373 398 H172 Q155 398 155 382 V351 Q155 333 174 333Z"/>
+    <circle cx="199" cy="394" r="27"/>
+    <circle cx="347" cy="394" r="27"/>
+  </g>
+
+  <!-- connectivity -->
+  <g stroke="#A8FF4F" stroke-width="11" stroke-linecap="round" opacity=".0">
+    <path d="M388 260 Q421 226 453 260"/>
+    <path d="M400 284 Q421 264 441 284"/>
+    <path d="M414 307 Q421 300 428 307"/>
+  </g>
+
+  <!-- floor glow -->
+  <ellipse cx="256" cy="410" rx="180" ry="18" fill="#39F477" opacity=".28" filter="url(#soft)"/>
+  <path d="M82 409 H430" stroke="#55FF78" stroke-width="8" stroke-linecap="round" opacity=".85" filter="url(#glow)"/>
+
+  <!-- physical vehicle -->
+  <g>
+    <path d="M142 365 L161 317 Q169 296 195 296 H302 Q328 296 338 317 L357 365Z" fill="url(#car)"/>
+    <path d="M159 365 H353 Q369 365 369 381 V397 Q369 409 355 409 H157 Q143 409 143 397 V381 Q143 365 159 365Z" fill="url(#car)"/>
+    <path d="M191 318 L205 296 H301 L316 318Z" fill="#F5FBF9"/>
+    <rect x="205" y="296" width="96" height="8" rx="4" fill="#D5E6E1"/>
+    <circle cx="184" cy="407" r="35" fill="#F5FFFC"/>
+    <circle cx="184" cy="407" r="20" fill="#083D38"/>
+    <circle cx="328" cy="407" r="35" fill="#F5FFFC"/>
+    <circle cx="328" cy="407" r="20" fill="#083D38"/>
+    <rect x="345" y="356" width="10" height="18" rx="4" fill="#B7FF58"/>
+  </g>
+
+  <!-- compact variants: preserve the core identity at favicon sizes -->
+  <g opacity=".0">
+    <path d="M115 441 H397" stroke="#38E86B" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+  </g>
+</svg>

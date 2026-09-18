@@ -1,8 +1,15 @@
-const CACHE_NAME = 'vehicle-garage-v2'
+const CACHE_NAME = 'vehicle-garage-v3'
 
 self.addEventListener('install', (event) => {
 	self.skipWaiting()
-	event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(['/', '/index.html', '/manifest.webmanifest'])))
+	event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll([
+		'/',
+		'/index.html',
+		'/manifest.webmanifest',
+		'/icons/vehicle-garage-192.svg',
+		'/icons/vehicle-garage-512.svg',
+		'/icons/vehicle-garage-maskable.svg',
+	])))
 })
 
 self.addEventListener('activate', (event) => {
