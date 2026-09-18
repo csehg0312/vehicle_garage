@@ -55,9 +55,13 @@ function addTorque() {
     system: 'engine',
     component: '',
     fastener: '',
-    torque: { value: 1, unit: 'Nm' },
-    stages: [],
+    stages: [{ step: 1 }],
   })
+  publish()
+}
+
+function addDirectTorque(item: TorqueSpecification) {
+  item.torque = { value: 0.1, unit: 'Nm' }
   publish()
 }
 
@@ -164,7 +168,7 @@ function torqueLabel(item: TorqueSpecification) {
             <label>System<select v-model="item.system" @change="publish"><option v-for="system in systems" :key="system" :value="system">{{ system }}</option></select></label>
             <label>Component<input v-model="item.component" placeholder="Brake caliper" @change="publish" /></label>
             <label>Fastener<input v-model="item.fastener" placeholder="Mounting bolt" @change="publish" /></label>
-            <label>Torque<input v-model.number="item.torque!.value" type="number" min="0" step="0.1" @change="publish" /><select v-model="item.torque!.unit" @change="publish"><option>Nm</option><option>lb-ft</option><option>kgf-m</option></select></label>
+            <label>Torque<template v-if="item.torque"><span class="compound-field"><input v-model.number="item.torque.value" type="number" min="0" step="0.1" @change="publish" /><select v-model="item.torque.unit" @change="publish"><option>Nm</option><option>lb-ft</option><option>kgf-m</option></select></span></template><button v-else class="inline-action" type="button" @click="addDirectTorque(item)">Set direct torque</button></label>
           </div>
           <div v-if="item.stages?.length" class="stage-list">
             <div v-for="stage in item.stages" :key="stage.step" class="stage-row"><span>Stage {{ stage.step }}</span><strong>{{ stage.torque ? `${stage.torque.value} ${stage.torque.unit}` : stage.angleDeg ? `${stage.angleDeg}°` : stage.description }}</strong></div>
