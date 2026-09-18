@@ -60,11 +60,36 @@ export interface VehicleDiagnosis {
   symptom: string
   firstObservedDate: string
   errorCode?: string
+  conditions?: string
+  safety?: 'safe' | 'caution' | 'stop'
   suspectedCause?: string
   confirmedCause?: string
   repair?: string
   result?: string
   evidenceSource?: string
+  evidence?: DiagnosisEvidence[]
+  checks?: DiagnosisCheck[]
+}
+
+export type DiagnosisEvidenceKind = 'web' | 'image' | 'video' | 'audio' | 'obd' | 'measurement' | 'document'
+
+export interface DiagnosisEvidence {
+  id: string
+  kind: DiagnosisEvidenceKind
+  title: string
+  url?: string
+  note?: string
+  capturedAt?: string
+  odometer?: number
+}
+
+export interface DiagnosisCheck {
+  id: string
+  question: string
+  expected?: string
+  actual?: string
+  result: 'pending' | 'pass' | 'fail' | 'unknown'
+  sourceUrl?: string
 }
 
 export interface VehicleModification {

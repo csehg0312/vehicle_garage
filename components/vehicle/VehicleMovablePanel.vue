@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 export interface VehiclePanelRect {
   x: number
@@ -16,10 +16,16 @@ const props = withDefaults(
     modelValue?: VehiclePanelRect
     minWidth?: number
     minHeight?: number
+    gridSize?: number
+    collisionRects?: VehiclePanelRect[]
+    movable?: boolean
   }>(),
   {
     minWidth: 220,
     minHeight: 140,
+    gridSize: 1,
+    collisionRects: () => [],
+    movable: true,
   },
 )
 
@@ -31,7 +37,9 @@ const panel = ref<HTMLElement | null>(null)
 const fallbackRect: VehiclePanelRect = { x: 16, y: 16, width: 280, height: 180 }
 const interaction = ref<Interaction>(null)
 const active = ref(false)
+const compactViewport = ref(false)
 const start = ref<{ clientX: number; clientY: number; rect: VehiclePanelRect } | null>(null)
+let compactQuery: MediaQueryList | null = null
 
 const panelStyle = computed(() => ({
   left: `${(props.modelValue ?? fallbackRect).x}px`,
@@ -49,8 +57,21 @@ function limit(value: number, minimum: number, maximum: number) {
   return Math.min(Math.max(value, minimum), Math.max(minimum, maximum))
 }
 
+function snap(value: number) {
+  return Math.round(value / props.gridSize) * props.gridSize
+}
+
+function collides(rect: VehiclePanelRect) {
+  return props.collisionRects.some((other) =>
+    rect.x < other.x + other.width &&
+    rect.x + rect.width > other.x &&
+    rect.y < other.y + other.height &&
+    rect.y + rect.height > other.y,
+  )
+}
+
 function begin(event: PointerEvent, type: Exclude<Interaction, null>) {
-  if (event.button !== 0) return
+  if (event.button !== 0 || !props.movable || compactViewport.value) return
 
   interaction.value = type
   active.value = true
@@ -75,19 +96,21 @@ function move(event: PointerEvent) {
   const original = start.value.rect
 
   if (interaction.value === 'move') {
-    emit('update:modelValue', {
+    const next = {
       ...original,
-      x: limit(original.x + deltaX, 0, bounds.clientWidth - original.width),
-      y: limit(original.y + deltaY, 0, bounds.clientHeight - original.height),
-    })
+      x: limit(snap(original.x + deltaX), 0, bounds.clientWidth - original.width),
+      y: limit(snap(original.y + deltaY), 0, bounds.clientHeight - original.height),
+    }
+    if (!collides(next)) emit('update:modelValue', next)
     return
   }
 
-  emit('update:modelValue', {
+  const next = {
     ...original,
-    width: limit(original.width + deltaX, props.minWidth, bounds.clientWidth - original.x),
-    height: limit(original.height + deltaY, props.minHeight, bounds.clientHeight - original.y),
-  })
+    width: limit(snap(original.width + deltaX), props.minWidth, bounds.clientWidth - original.x),
+    height: limit(snap(original.height + deltaY), props.minHeight, bounds.clientHeight - original.y),
+  }
+  if (!collides(next)) emit('update:modelValue', next)
 }
 
 function end() {
@@ -96,7 +119,9 @@ function end() {
   start.value = null
 }
 
-onBeforeUnmount(end)
+function updateCompactViewport() { compactViewport.value = compactQuery?.matches ?? false }
+onMounted(() => { compactQuery = window.matchMedia('(max-width: 680px)'); updateCompactViewport(); compactQuery.addEventListener('change', updateCompactViewport) })
+onBeforeUnmount(() => { compactQuery?.removeEventListener('change', updateCompactViewport); end() })
 </script>
 
 <template>
@@ -115,7 +140,7 @@ onBeforeUnmount(end)
       @pointercancel="end"
     >
       <h3>{{ title }}</h3>
-      <span class="vehicle-movable-panel-hint">Drag</span>
+      <span v-if="movable" class="vehicle-movable-panel-hint">Drag</span>
     </header>
 
     <div class="vehicle-movable-panel-content">
@@ -197,5 +222,11 @@ onBeforeUnmount(end)
   background: linear-gradient(135deg, transparent 45%, var(--color-primary, #246b45) 46%, transparent 54%);
   cursor: nwse-resize;
   touch-action: none;
+}
+
+@media (max-width: 680px) {
+  .vehicle-movable-panel-header { min-height: 3rem; padding: 0.65rem 0.75rem; }
+  .vehicle-movable-panel-content { padding: 0.7rem; }
+  .vehicle-movable-panel-resize { width: 1.35rem; height: 1.35rem; }
 }
 </style>

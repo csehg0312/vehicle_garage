@@ -25,13 +25,24 @@ describe('maintenance records', () => {
     expect(new Set(ids).size).toBe(ids.length)
   })
 
-  it('adds a maintenance record for a vehicle', () => {
+	it('adds a maintenance record for a vehicle', () => {
     setActivePinia(createPinia())
     const store = useMaintenanceStore()
 
     const record = store.addRecord({ vehicleId: 'honda-civic', date: '2026-09-18', odometer: 239000, category: { id: 'engine', name: 'Engine' }, description: 'Coolant check', cost: 12, performedBy: 'owner' })
 
     expect(record.description).toBe('Coolant check')
-    expect(store.records[0]).toEqual(record)
-  })
+		expect(store.records[0]).toEqual(record)
+	})
+
+	it('replaces records from a complete backup', () => {
+		setActivePinia(createPinia())
+		const store = useMaintenanceStore()
+		const backup = [{ id: 'maintenance-backup', vehicleId: 'backup-car', date: '2026-09-18', odometer: 100000, category: { id: 'engine', name: 'Engine' as const }, description: 'Inspection', cost: 0, performedBy: 'owner' as const }]
+
+		store.replaceRecords(backup)
+
+		expect(store.records).toEqual(backup)
+		expect(() => store.replaceRecords([{ id: 'bad' } as never])).toThrow('Backup contains invalid maintenance records')
+	})
 })

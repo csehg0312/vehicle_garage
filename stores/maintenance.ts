@@ -69,5 +69,14 @@ export const useMaintenanceStore = defineStore('maintenance', {
 			this.records.unshift(newRecord)
 			return newRecord
 		},
+		replaceRecords(records: MaintenanceRecord[]) {
+			if (!records.every(isMaintenanceRecord)) throw new Error('Backup contains invalid maintenance records')
+			this.records = records
+		},
 	},
 })
+
+export function isMaintenanceRecord(value: unknown): value is MaintenanceRecord {
+	const record = value as MaintenanceRecord | null
+	return Boolean(record && typeof record.id === 'string' && typeof record.vehicleId === 'string' && typeof record.date === 'string' && typeof record.odometer === 'number' && record.odometer >= 0 && typeof record.description === 'string' && record.description.trim() && typeof record.cost === 'number' && record.cost >= 0 && (record.performedBy === 'owner' || record.performedBy === 'workshop') && record.category && typeof record.category.id === 'string' && typeof record.category.name === 'string')
+}

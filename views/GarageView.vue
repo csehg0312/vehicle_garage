@@ -22,8 +22,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useVehiclesStore } from '../stores/vehicles'
+import { isMaintenanceRecord, useMaintenanceStore, type MaintenanceRecord } from '../stores/maintenance'
 import { useI18n } from '../services/i18n'
 const vehicleStore = useVehiclesStore()
+const maintenanceStore = useMaintenanceStore()
 const { t } = useI18n()
 const fileInput = ref<HTMLInputElement>()
 const backupMessage = ref('')
@@ -31,7 +33,8 @@ const totalMileage = computed(() => vehicleStore.vehicles.reduce((total, vehicle
 const formatNumber = (value: number) => new Intl.NumberFormat('en-US').format(value)
 const formatCurrency = (value: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value)
 function exportBackup() {
-	const blob = new Blob([JSON.stringify(vehicleStore.vehicles, null, 2)], { type: 'application/json' })
+	const backup = { version: 2, exportedAt: new Date().toISOString(), vehicles: vehicleStore.vehicles, maintenance: maintenanceStore.records }
+	const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' })
 	const url = URL.createObjectURL(blob)
 	const link = document.createElement('a')
 	link.href = url
@@ -47,8 +50,12 @@ async function importBackup(event: Event) {
 	if (!file) return
 	try {
 		const data = JSON.parse(await file.text())
-		if (!Array.isArray(data)) throw new Error('Backup must contain a vehicle list')
-		vehicleStore.replaceVehicles(data)
+		const vehicles = Array.isArray(data) ? data : data?.vehicles
+		const maintenance = Array.isArray(data) ? maintenanceStore.records : data?.maintenance
+		if (!Array.isArray(vehicles)) throw new Error('Backup must contain a vehicle list')
+		if (!Array.isArray(maintenance) || !maintenance.every(isMaintenanceRecord)) throw new Error('Backup must contain valid maintenance records')
+		vehicleStore.replaceVehicles(vehicles)
+		maintenanceStore.replaceRecords(maintenance as MaintenanceRecord[])
 		backupMessage.value = t('garage.imported')
 	} catch (error) {
 		backupMessage.value = error instanceof Error ? error.message : 'Backup import failed'
