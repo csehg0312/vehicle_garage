@@ -62,7 +62,10 @@ describe('HondaDrive telemetry cursor', () => {
     state = applyTelemetryFrame(state, makeFrame(100, 149))
     state = applyTelemetryFrame(state, makeFrame(200, 249))
 
-    expect(state.gaps).toEqual([{ fromSequence: 0, toSequence: 99 }])
+    expect(state.gaps).toEqual([
+      { fromSequence: 0, toSequence: 99 },
+      { fromSequence: 150, toSequence: 199 },
+    ])
 
     state = applyTelemetryFrame(state, makeFrame(150, 199))
     expect(state.gaps).toEqual([{ fromSequence: 0, toSequence: 99 }])
