@@ -128,17 +128,17 @@ export function toWireGps(value: GpsTelemetry): WireGpsTelemetry {
 }
 
 export function fromWireGps(value: WireGpsTelemetry): GpsTelemetry {
-  return {
+  return compact({
     latitude: requireDecoded(value.latitude_e7, 10_000_000, 'GPS latitude'),
     longitude: requireDecoded(value.longitude_e7, 10_000_000, 'GPS longitude'),
     speedKph: decodeScaled(value.speed_kph_x10, 10),
     headingDegrees: decodeScaled(value.heading_degrees_x10, 10),
     accuracyMeters: decodeScaled(value.accuracy_m_x100, 100),
-  }
+  })
 }
 
 export function toWireObd(value: ObdTelemetry): WireObdTelemetry {
-  return {
+  return compact({
     rpm_x10: encodeUnsignedScaled(value.rpm, 10),
     speed_kph_x10: encodeUnsignedScaled(value.speedKph, 10),
     coolant_celsius_x10: encodeScaled(value.coolantCelsius, 10),
@@ -156,11 +156,11 @@ export function toWireObd(value: ObdTelemetry): WireObdTelemetry {
     runtime_since_start_seconds: encodeUnsignedScaled(value.runtimeSinceStartSeconds, 1),
     barometric_pressure_kpa_x10: encodeUnsignedScaled(value.barometricPressureKpa, 10),
     ambient_air_celsius_x10: encodeScaled(value.ambientAirCelsius, 10),
-  }
+  })
 }
 
 export function fromWireObd(value: WireObdTelemetry): ObdTelemetry {
-  return {
+  return compact({
     rpm: decodeScaled(value.rpm_x10, 10),
     speedKph: decodeScaled(value.speed_kph_x10, 10),
     coolantCelsius: decodeScaled(value.coolant_celsius_x10, 10),
@@ -178,77 +178,77 @@ export function fromWireObd(value: WireObdTelemetry): ObdTelemetry {
     runtimeSinceStartSeconds: decodeScaled(value.runtime_since_start_seconds, 1),
     barometricPressureKpa: decodeScaled(value.barometric_pressure_kpa_x10, 10),
     ambientAirCelsius: decodeScaled(value.ambient_air_celsius_x10, 10),
-  }
+  })
 }
 
 export function toWireDerived(value: DerivedTelemetry): WireDerivedTelemetry {
-  return {
+  return compact({
     total_fuel_trim_percent_x10: encodeScaled(value.totalFuelTrimPercent, 10),
     estimated_air_mass_g_per_s_x100: encodeUnsignedScaled(value.estimatedAirMassGPerS, 100),
     estimated_fuel_rate_lph_x100: encodeUnsignedScaled(value.estimatedFuelRateLph, 100),
     estimated_fuel_economy_l_per_100km_x100: encodeUnsignedScaled(value.estimatedFuelEconomyLPer100Km, 100),
     estimated_power_kw_x100: encodeUnsignedScaled(value.estimatedPowerKw, 100),
     estimated_torque_nm_x100: encodeUnsignedScaled(value.estimatedTorqueNm, 100),
-  }
+  })
 }
 
 export function fromWireDerived(value: WireDerivedTelemetry): DerivedTelemetry {
-  return {
+  return compact({
     totalFuelTrimPercent: decodeScaled(value.total_fuel_trim_percent_x10, 10),
     estimatedAirMassGPerS: decodeScaled(value.estimated_air_mass_g_per_s_x100, 100),
     estimatedFuelRateLph: decodeScaled(value.estimated_fuel_rate_lph_x100, 100),
     estimatedFuelEconomyLPer100Km: decodeScaled(value.estimated_fuel_economy_l_per_100km_x100, 100),
     estimatedPowerKw: decodeScaled(value.estimated_power_kw_x100, 100),
     estimatedTorqueNm: decodeScaled(value.estimated_torque_nm_x100, 100),
-  }
+  })
 }
 
 export function toWireVehicleRef(value: HondaDriveVehicleRef): WireVehicleRef {
-  return {
+  return compact({
     vehicle_id: value.vehicleId,
     profile_id: value.profileId,
-  }
+  })
 }
 
 export function fromWireVehicleRef(value: WireVehicleRef): HondaDriveVehicleRef {
-  return {
+  return compact({
     vehicleId: value.vehicle_id,
     profileId: value.profile_id,
-  }
+  })
 }
 
 export function toWireStateEstimate(value: StateEstimate): WireStateEstimate {
-  return {
+  return compact({
     timestamp_ms: value.timestampMs,
     state: value.state,
     confidence_x1000: encodeUnsignedScaled(value.confidence, 1000),
-  }
+  })
 }
 
 export function fromWireStateEstimate(value: WireStateEstimate): StateEstimate {
-  return {
+  return compact({
     timestampMs: value.timestamp_ms,
     state: value.state,
     confidence: requireDecoded(value.confidence_x1000, 1000, 'StateEstimate confidence'),
-  }
+  })
 }
 
 export function toWireShiftCandidate(value: ShiftCandidate): WireShiftCandidate {
-  return {
+  return compact({
     direction: value.direction,
     confidence_x1000: encodeUnsignedScaled(value.confidence, 1000),
-  }
+  })
 }
 
 export function fromWireShiftCandidate(value: WireShiftCandidate): ShiftCandidate {
-  return {
+  return compact({
     direction: value.direction,
     confidence: requireDecoded(value.confidence_x1000, 1000, 'ShiftCandidate confidence'),
-  }
+  })
 }
 
 export function toWireEvent(value: TelemetryEvent): WireTelemetryEvent {
-  return {
+  return compact({
     sequence: value.sequence,
     timestamp_ms: value.timestampMs,
     type: value.type,
@@ -259,11 +259,11 @@ export function toWireEvent(value: TelemetryEvent): WireTelemetryEvent {
       ? toWireShiftCandidate(value.shiftCandidate)
       : undefined,
     message: value.message,
-  }
+  })
 }
 
 export function fromWireEvent(value: WireTelemetryEvent): TelemetryEvent {
-  return {
+  return compact({
     sequence: value.sequence,
     timestampMs: value.timestamp_ms,
     type: value.type,
@@ -274,31 +274,31 @@ export function fromWireEvent(value: WireTelemetryEvent): TelemetryEvent {
       ? fromWireShiftCandidate(value.shift_candidate)
       : undefined,
     message: value.message,
-  }
+  })
 }
 
 export function toWireSample(value: TelemetrySample): WireTelemetrySample {
-  return {
+  return compact({
     sequence: value.sequence,
     timestamp_ms: value.timestampMs,
     gps: value.gps ? toWireGps(value.gps) : undefined,
     obd: value.obd ? toWireObd(value.obd) : undefined,
     derived: value.derived ? toWireDerived(value.derived) : undefined,
-  }
+  })
 }
 
 export function fromWireSample(value: WireTelemetrySample): TelemetrySample {
-  return {
+  return compact({
     sequence: value.sequence,
     timestampMs: value.timestamp_ms,
     gps: value.gps ? fromWireGps(value.gps) : undefined,
     obd: value.obd ? fromWireObd(value.obd) : undefined,
     derived: value.derived ? fromWireDerived(value.derived) : undefined,
-  }
+  })
 }
 
 export function toWireFrame(value: TelemetryFrame): WireTelemetryFrame {
-  return {
+  return compact({
     trip_id: value.tripId,
     vehicle: toWireVehicleRef(value.vehicle),
     first_sequence: value.firstSequence,
@@ -308,11 +308,11 @@ export function toWireFrame(value: TelemetryFrame): WireTelemetryFrame {
     samples: value.samples.map(toWireSample),
     state_estimates: value.stateEstimates?.map(toWireStateEstimate),
     events: value.events?.map(toWireEvent),
-  }
+  })
 }
 
 export function fromWireFrame(value: WireTelemetryFrame): TelemetryFrame {
-  return {
+  return compact({
     tripId: value.trip_id,
     vehicle: fromWireVehicleRef(value.vehicle),
     firstSequence: value.first_sequence,
