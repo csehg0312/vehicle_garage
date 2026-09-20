@@ -1,3 +1,5 @@
+import type { VehicleTechnicalReference } from './technicalReference'
+
 export type FuelType = 'Petrol' | 'Diesel' | 'Hybrid' | 'Electric'
 
 export interface Vehicle {
@@ -41,19 +43,7 @@ export interface VehicleTechnicalData {
   fuelEconomyCombinedL100: number | null
 }
 
-export interface VehicleTechnicalReference {
-  engineOil?: string
-  oilCapacityLitres?: number | null
-  coolantType?: string
-  brakeFluid?: string
-  sparkPlugs?: string
-  filters?: string
-  beltChainIntervals?: string
-  torqueValues?: string
-  tireSizesPressures?: string
-  fuseLocations?: string
-  fluidSpecifications?: string
-}
+export type { VehicleTechnicalReference } from './technicalReference'
 
 export interface VehicleDiagnosis {
   id: string

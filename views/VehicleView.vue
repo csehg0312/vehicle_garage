@@ -3,19 +3,19 @@
     <RouterLink class="back-link" to="/garage">{{ t('vehicle.back') }}</RouterLink>
     <header class="detail-heading">
       <div><span class="eyebrow">{{ t('vehicle.overview') }}</span><h2>{{ vehicle.make }} {{ vehicle.model }}</h2><p>{{ vehicle.year }} / {{ vehicle.engine }} / {{ vehicle.fuelType }}</p></div>
-      <div class="heading-actions"><a v-if="vehicle.manualUrl" class="button button-soft" :href="vehicle.manualUrl" target="_blank" rel="noopener noreferrer">{{ t('vehicle.manual') }}</a><button class="button button-outline" type="button" @click="activeTab = 'identity'">{{ t('vehicle.edit') }}</button></div>
+      <div class="heading-actions"><button class="button button-soft technical-reference-action" type="button" @click="activeTab = 'technical'">Technical reference</button><a v-if="vehicle.manualUrl" class="button button-soft" :href="vehicle.manualUrl" target="_blank" rel="noopener noreferrer">{{ t('vehicle.manual') }}</a><button class="button button-outline" type="button" @click="activeTab = 'identity'">{{ t('vehicle.edit') }}</button></div>
     </header>
     <div class="hero-detail"><div class="detail-image" :class="vehicle.id"><span>{{ vehicle.make.charAt(0) }}{{ vehicle.model.charAt(0) }}</span></div><div class="hero-copy"><span class="eyebrow">{{ t('vehicle.currentOdometer') }}</span><strong>{{ formatNumber(vehicle.odometer) }} <small>km</small></strong><p>{{ vehicle.color }} / {{ t('vehicle.ownedSince') }}</p></div></div>
-    <div class="detail-stats"><article><span>{{ t('vehicle.totalCost') }}</span><strong>{{ formatCurrency(vehicle.ownershipCost) }}</strong><small>{{ t('vehicle.sincePurchase') }}</small></article><article><span>{{ t('vehicle.avgFuel') }}</span><strong>7.2 <small>L/100km</small></strong><small>{{ t('vehicle.lastYear') }}</small></article><article><span>{{ t('vehicle.lastService') }}</span><strong>{{ lastServiceDate }}</strong><small>{{ lastServiceDescription }}</small></article></div>
+    <div class="detail-stats"><article><span>{{ t('vehicle.totalCost') }}</span><strong>{{ formatCurrency(totalOwnershipCost) }}</strong><small>{{ t('vehicle.sincePurchase') }}</small></article><article><span>{{ t('vehicle.avgFuel') }}</span><strong>7.2 <small>L/100km</small></strong><small>{{ t('vehicle.lastYear') }}</small></article><article><span>{{ t('vehicle.lastService') }}</span><strong>{{ lastServiceDate }}</strong><small>{{ lastServiceDescription }}</small></article></div>
 
     <VehicleTabs v-model="activeTab" :tabs="tabs">
       <template #tab-identity><VehicleSection title="Vehicle identity" eyebrow="Profile" description="Confirm identity data before using technical or service information."><form class="edit-form" @submit.prevent="saveProfile"><div class="edit-grid"><label>Make<input v-model="profileDraft.make" required /></label><label>Model<input v-model="profileDraft.model" required /></label><label>Year<input v-model.number="profileDraft.year" type="number" min="1" required /></label><label>VIN<input v-model="profileDraft.vin" placeholder="17-character VIN" /></label><label>Registration plate<input v-model="profileDraft.registrationPlate" /></label><label>Body style<input v-model="profileDraft.bodyStyle" placeholder="5-door hatchback" /></label><label>Engine / version<input v-model="profileDraft.engine" required /></label><label>Engine code<input v-model="profileDraft.engineCode" placeholder="D16V1" /></label><label>Fuel type<select v-model="profileDraft.fuelType"><option v-for="fuel in fuelTypes" :key="fuel" :value="fuel">{{ fuel }}</option></select></label><label>Transmission<input v-model="profileDraft.transmission" placeholder="Manual 5-speed" /></label><label>Drivetrain<input v-model="profileDraft.drivetrain" placeholder="FWD" /></label><label>Market / country<input v-model="profileDraft.marketCountry" placeholder="SK" /></label><label>Odometer (km)<input v-model.number="profileDraft.odometer" type="number" min="0" required /></label><label>Color<input v-model="profileDraft.color" required /></label><label>Ownership cost<input v-model.number="profileDraft.ownershipCost" type="number" min="0" required /></label></div><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('vehicle.save') }}</button></div></form></VehicleSection></template>
 
-      <template #tab-service><VehicleSection title="Service timeline" eyebrow="Service history" description="Record work, parts, costs, evidence, and the next due date."><div class="section-toolbar"><span>{{ records.length }} records</span><button class="button button-primary" type="button" @click="showMaintenanceForm = !showMaintenanceForm">{{ showMaintenanceForm ? 'Close' : t('vehicle.addRecord') }}</button></div><form v-if="showMaintenanceForm" class="edit-form nested-form" @submit.prevent="addMaintenance"><div class="edit-grid"><label>Date<input v-model="maintenanceDraft.date" type="date" required /></label><label>Odometer<input v-model.number="maintenanceDraft.odometer" type="number" min="0" required /></label><label>Work performed<input v-model="maintenanceDraft.description" required /></label><label>Category<select v-model="maintenanceDraft.category"><option v-for="category in maintenanceCategories" :key="category" :value="category">{{ category }}</option></select></label><label>Parts and fluids<input v-model="maintenanceDraft.partsFluids" placeholder="5W-30, oil filter" /></label><label>Cost<input v-model.number="maintenanceDraft.cost" type="number" min="0" required /></label><label>Workshop / person<input v-model="maintenanceDraft.workshop" placeholder="Owner or workshop name" /></label><label>Next service due<input v-model="maintenanceDraft.nextServiceDue" type="date" /></label><label>Receipt / photo URL<input v-model="maintenanceDraft.receiptUrl" placeholder="Optional local reference" /></label></div><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('maintenance.save') }}</button></div></form><ol v-if="records.length" class="service-timeline"><li v-for="record in records" :key="record.id"><div class="timeline-date">{{ formatDate(record.date) }}<small>{{ formatNumber(record.odometer) }} km</small></div><div class="timeline-content"><strong>{{ record.description }}</strong><span>{{ record.partsFluids || record.category.name }} · {{ formatCurrency(record.cost) }}</span><small v-if="record.workshop || record.nextServiceDue">{{ record.workshop || 'Owner' }}<template v-if="record.nextServiceDue"> · next {{ formatDate(record.nextServiceDue) }}</template></small><a v-if="record.receiptUrl" :href="record.receiptUrl" target="_blank" rel="noopener noreferrer">Receipt / photo</a></div></li></ol><p v-else class="empty-copy">No service records yet.</p></VehicleSection></template>
+      <template #tab-service><VehicleSection title="Service timeline" eyebrow="Service history" description="Record work, parts, costs, evidence, and the next due date."><div class="section-toolbar"><span>{{ records.length }} records</span><button class="button button-primary" type="button" @click="showMaintenanceForm = !showMaintenanceForm">{{ showMaintenanceForm ? 'Close' : t('vehicle.addRecord') }}</button></div><form v-if="showMaintenanceForm" class="edit-form nested-form" @submit.prevent="addMaintenance"><div class="edit-grid"><label>Date<input v-model="maintenanceDraft.date" type="date" required /></label><label>Odometer<input v-model.number="maintenanceDraft.odometer" type="number" min="0" required /></label><label>Work performed<input v-model="maintenanceDraft.description" required /></label><label>Category<select v-model="maintenanceDraft.category"><option v-for="category in maintenanceCategories" :key="category" :value="category">{{ category }}</option></select></label><label>Parts and fluids<input v-model="maintenanceDraft.partsFluids" placeholder="5W-30, oil filter" /></label><label>Cost<input v-model.number="maintenanceDraft.cost" type="number" min="0" required /></label><label>Workshop / person<input v-model="maintenanceDraft.workshop" placeholder="Owner or workshop name" /></label><label>Next service due<input v-model="maintenanceDraft.nextServiceDue" type="date" /></label><label>Receipt / photo URL<input v-model="maintenanceDraft.receiptUrl" placeholder="Optional local reference" /></label></div><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('maintenance.save') }}</button></div></form><ol v-if="records.length" class="service-timeline"><li v-for="record in records" :key="record.id"><div class="timeline-date">{{ formatDate(record.date) }}<small>{{ formatNumber(record.odometer) }} km</small></div><div class="timeline-content"><strong>{{ record.description }}</strong><span>{{ record.partsFluids || record.category.name }} · {{ formatCurrency(record.cost) }}</span><small v-if="record.performedBy === 'workshop' || record.nextServiceDue">{{ record.performedBy === 'workshop' || 'Owner' }}<template v-if="record.nextServiceDue"> · next {{ formatDate(record.nextServiceDue) }}</template></small><a v-if="record.receiptUrl" :href="record.receiptUrl" target="_blank" rel="noopener noreferrer">Receipt / photo</a></div></li></ol><p v-else class="empty-copy">No service records yet.</p></VehicleSection></template>
 
       <template #tab-diagnosis><VehicleSection title="Problems and diagnosis" eyebrow="Issues" description="Capture symptoms, evidence, safe checks, repairs, and verification."><div class="section-toolbar"><span>{{ diagnoses.length }} cases</span><button class="button button-primary" type="button" @click="openNewDiagnosis">Add case</button></div><DiagnosisCaseEditor v-if="showDiagnosisEditor" :diagnosis="selectedDiagnosis" @save="saveDiagnosis" @cancel="showDiagnosisEditor = false" @delete="deleteDiagnosis" /><div class="diagnosis-board"><VehicleMovablePanel v-model="diagnosisPanels.symptoms" title="Symptoms" :grid-size="16" :collision-rects="diagnosisCollisionRects.symptoms"><ul class="diagnosis-list"><li v-for="item in diagnoses" :key="`symptom-${item.id}`"><strong>{{ item.symptom }}</strong><span>{{ item.errorCode || 'No error code' }}</span></li><li v-if="!diagnoses.length" class="empty-copy">Add symptoms to start mapping.</li></ul></VehicleMovablePanel><VehicleMovablePanel v-model="diagnosisPanels.causes" title="Causes" :grid-size="16" :collision-rects="diagnosisCollisionRects.causes"><ul class="diagnosis-list"><li v-for="item in diagnoses" :key="`cause-${item.id}`"><strong>{{ item.confirmedCause || item.suspectedCause || 'Cause not recorded' }}</strong><span>{{ item.symptom }}</span></li><li v-if="!diagnoses.length" class="empty-copy">Confirmed and suspected causes appear here.</li></ul></VehicleMovablePanel><VehicleMovablePanel v-model="diagnosisPanels.outcomes" title="Outcomes" :grid-size="16" :collision-rects="diagnosisCollisionRects.outcomes"><ul class="diagnosis-list"><li v-for="item in diagnoses" :key="`outcome-${item.id}`"><strong>{{ item.result || 'Outcome not recorded' }}</strong><span>{{ item.repair || 'Repair not recorded' }}</span></li><li v-if="!diagnoses.length" class="empty-copy">Record repairs and results to close loop.</li></ul></VehicleMovablePanel></div><div v-if="diagnoses.length" class="record-grid"><article v-for="item in diagnoses" :key="item.id" class="record-card"><button class="record-edit" type="button" @click="openDiagnosis(item)"><strong>{{ item.symptom }}</strong><span>{{ item.safety || 'safe' }}<template v-if="item.errorCode"> · {{ item.errorCode }}</template></span><p v-if="item.conditions">{{ item.conditions }}</p><p v-if="item.confirmedCause || item.suspectedCause">Cause: {{ item.confirmedCause || item.suspectedCause }}</p><small>{{ item.checks?.length ?? 0 }} checks · {{ item.evidence?.length ?? 0 }} evidence</small></button></article></div><p v-else class="empty-copy">No diagnosis cases yet.</p></VehicleSection></template>
 
-      <template #tab-technical><VehicleSection title="Technical reference" eyebrow="Reference" description="Local values can be corrected for this specific vehicle."><form class="edit-form" @submit.prevent="saveTechnicalReference"><div class="edit-grid"><label>Engine oil<input v-model="technicalDraft.engineOil" /></label><label>Oil capacity (L)<input v-model.number="technicalDraft.oilCapacityLitres" type="number" min="0" step="0.1" /></label><label>Coolant type<input v-model="technicalDraft.coolantType" /></label><label>Brake fluid<input v-model="technicalDraft.brakeFluid" /></label><label>Spark plugs<input v-model="technicalDraft.sparkPlugs" /></label><label>Filters<input v-model="technicalDraft.filters" /></label><label>Belt / chain intervals<input v-model="technicalDraft.beltChainIntervals" /></label><label>Torque values<input v-model="technicalDraft.torqueValues" /></label><label>Tire sizes and pressures<input v-model="technicalDraft.tireSizesPressures" /></label><label>Fuse locations<input v-model="technicalDraft.fuseLocations" /></label><label>Fluid specifications<input v-model="technicalDraft.fluidSpecifications" /></label></div><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('vehicle.save') }}</button></div></form></VehicleSection></template>
+      <template #tab-technical><VehicleSection title="Technical reference" eyebrow="Reference" description="Structured, vehicle-specific technical data for service and diagnostics."><TechnicalReferenceEditor :model-value="technicalDraft" @update:model-value="updateTechnicalDraft" /><form class="edit-form technical-save-form" @submit.prevent="saveTechnicalReference"><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('vehicle.save') }}</button></div></form></VehicleSection></template>
 
       <template #tab-ownership><VehicleSection title="Ownership data" eyebrow="Costs" description="Track purchase, legal dates, insurance, value, and running costs."><form class="edit-form" @submit.prevent="saveOwnership"><div class="edit-grid"><label>Purchase date<input v-model="ownershipDraft.purchaseDate" type="date" /></label><label>Purchase price<input v-model.number="ownershipDraft.purchasePrice" type="number" min="0" /></label><label>Insurance<input v-model="ownershipDraft.insurance" /></label><label>Inspection expiry<input v-model="ownershipDraft.inspectionExpiry" type="date" /></label><label>Registration<input v-model="ownershipDraft.registration" /></label><label>Current value<input v-model.number="ownershipDraft.currentValue" type="number" min="0" /></label><label>Fuel costs<input v-model.number="ownershipDraft.fuelCosts" type="number" min="0" /></label><label>Ownership cost total<input v-model.number="ownershipDraft.ownershipCost" type="number" min="0" /></label></div><div class="edit-actions"><button class="button button-primary" type="submit">{{ t('vehicle.save') }}</button></div></form></VehicleSection></template>
 
@@ -29,6 +29,7 @@
 import { computed, reactive, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import VehicleSection from '../components/vehicle/VehicleSection.vue'
+import TechnicalReferenceEditor from '../components/vehicle/TechnicalReferenceEditor.vue'
 import VehicleTabs from '../components/vehicle/VehicleTabs.vue'
 import VehicleMovablePanel, { type VehiclePanelRect } from '../components/vehicle/VehicleMovablePanel.vue'
 import DiagnosisCaseEditor from '../components/vehicle/DiagnosisCaseEditor.vue'
@@ -40,11 +41,13 @@ import { useI18n } from '../services/i18n'
 const route = useRoute(); const vehicleStore = useVehiclesStore(); const maintenanceStore = useMaintenanceStore(); const { t } = useI18n()
 const vehicle = computed(() => vehicleStore.findById(String(route.params.vehicleId)))
 const records = computed(() => maintenanceStore.records.filter((record) => record.vehicleId === vehicle.value?.id).sort((a, b) => b.date.localeCompare(a.date)))
+const serviceHistoryCost = computed(() => records.value.reduce((total, record) => total + record.cost, 0))
+const totalOwnershipCost = computed(() => (vehicle.value?.ownershipCost ?? 0) + serviceHistoryCost.value)
 const diagnoses = computed(() => vehicle.value?.diagnoses ?? []); const modifications = computed(() => vehicle.value?.modifications ?? [])
 const diagnosisPanels = reactive<Record<'symptoms' | 'causes' | 'outcomes', VehiclePanelRect>>({
-  symptoms: { x: 16, y: 16, width: 260, height: 300 },
-  causes: { x: 296, y: 16, width: 260, height: 300 },
-  outcomes: { x: 576, y: 16, width: 260, height: 300 },
+  symptoms: { x: 0, y: 16, width: 260, height: 300 },
+  causes: { x: 260, y: 16, width: 260, height: 300 },
+  outcomes: { x: 520, y: 16, width: 260, height: 300 },
 })
 const diagnosisCollisionRects = computed(() => ({
   symptoms: [diagnosisPanels.causes, diagnosisPanels.outcomes],
@@ -56,15 +59,17 @@ const tabs = [{ value: 'identity', label: 'Vehicle identity' }, { value: 'servic
 const fuelTypes: FuelType[] = ['Petrol', 'Diesel', 'Hybrid', 'Electric']; const maintenanceCategories: MaintenanceCategoryName[] = ['Engine', 'Transmission', 'Brakes', 'Suspension', 'Electrical', 'Cooling System', 'Fuel System', 'Exhaust System', 'Body & Interior', 'Tires & Wheels', 'Other']
 const profileDraft = reactive({ make: '', model: '', year: 0, engine: '', fuelType: 'Petrol' as FuelType, odometer: 0, color: '', ownershipCost: 0, vin: '', registrationPlate: '', bodyStyle: '', engineCode: '', transmission: '', drivetrain: '', marketCountry: '' })
 const maintenanceDraft = reactive({ date: new Date().toISOString().slice(0, 10), odometer: 0, description: '', category: 'Other' as MaintenanceCategoryName, partsFluids: '', cost: 0, workshop: '', nextServiceDue: '', receiptUrl: '', performedBy: 'owner' as 'owner' | 'workshop' })
-const technicalDraft = reactive<VehicleTechnicalReference>({ engineOil: '', oilCapacityLitres: null, coolantType: '', brakeFluid: '', sparkPlugs: '', filters: '', beltChainIntervals: '', torqueValues: '', tireSizesPressures: '', fuseLocations: '', fluidSpecifications: '' })
+const emptyTechnicalReference = (): VehicleTechnicalReference => ({ torqueSpecifications: [], fluidSpecifications: [], maintenanceSpecifications: [], tireSpecifications: [], electricalSpecifications: [], fastenerSpecifications: [] })
+const technicalDraft = reactive<VehicleTechnicalReference>(emptyTechnicalReference())
 const ownershipDraft = reactive({ purchaseDate: '', purchasePrice: 0, insurance: '', inspectionExpiry: '', registration: '', currentValue: 0, fuelCosts: 0, ownershipCost: 0 })
 const modificationDraft = reactive({ partInstalled: '', date: new Date().toISOString().slice(0, 10), supplier: '', partNumber: '', reason: '', compatibilityNotes: '', originalPartRetained: true })
 const lastServiceDate = computed(() => records.value[0] ? formatDate(records.value[0].date) : '—'); const lastServiceDescription = computed(() => records.value[0]?.description ?? 'No records')
 const formatNumber = (value: number) => new Intl.NumberFormat('en-US').format(value); const formatCurrency = (value: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value); const formatDate = (value: string) => new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(new Date(`${value}T12:00:00`)); const makeId = (prefix: string) => `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
 
-watch(vehicle, (current) => { if (!current) return; Object.assign(profileDraft, current, { transmission: current.technicalData?.transmission ?? '', drivetrain: current.technicalData?.drivetrain ?? '', engineCode: current.technicalData?.engineCode ?? '' }); Object.assign(technicalDraft, current.technicalReference ?? {}); Object.assign(ownershipDraft, { purchaseDate: current.purchaseDate ?? '', purchasePrice: current.purchasePrice ?? 0, insurance: current.insurance ?? '', inspectionExpiry: current.inspectionExpiry ?? '', registration: current.registration ?? '', currentValue: current.currentValue ?? 0, fuelCosts: current.fuelCosts ?? 0, ownershipCost: current.ownershipCost }) }, { immediate: true })
+watch(vehicle, (current) => { if (!current) return; Object.assign(profileDraft, current, { transmission: current.technicalData?.transmission ?? '', drivetrain: current.technicalData?.drivetrain ?? '', engineCode: current.technicalData?.engineCode ?? '' }); Object.assign(technicalDraft, current.technicalReference ?? emptyTechnicalReference()); Object.assign(ownershipDraft, { purchaseDate: current.purchaseDate ?? '', purchasePrice: current.purchasePrice ?? 0, insurance: current.insurance ?? '', inspectionExpiry: current.inspectionExpiry ?? '', registration: current.registration ?? '', currentValue: current.currentValue ?? 0, fuelCosts: current.fuelCosts ?? 0, ownershipCost: current.ownershipCost }) }, { immediate: true })
 function saveProfile() { if (!vehicle.value) return; vehicleStore.updateVehicle(vehicle.value.id, { make: profileDraft.make, model: profileDraft.model, year: profileDraft.year, engine: profileDraft.engine, fuelType: profileDraft.fuelType, odometer: profileDraft.odometer, color: profileDraft.color, ownershipCost: profileDraft.ownershipCost, vin: profileDraft.vin, registrationPlate: profileDraft.registrationPlate, bodyStyle: profileDraft.bodyStyle, marketCountry: profileDraft.marketCountry, technicalData: { ...(vehicle.value.technicalData ?? { engineCode: '', isCustom: true, catalogGeneration: '', displacementCc: null, cylinders: null, powerHp: null, torqueNm: null, transmission: '', drivetrain: '', fuelEconomyCombinedL100: null }), engineCode: profileDraft.engineCode, transmission: profileDraft.transmission, drivetrain: profileDraft.drivetrain } }) }
 function addMaintenance() { if (!vehicle.value) return; maintenanceStore.addRecord({ ...maintenanceDraft, vehicleId: vehicle.value.id, category: { id: maintenanceDraft.category.toLowerCase().replace(/[^a-z]+/g, '-'), name: maintenanceDraft.category } }); maintenanceDraft.description = ''; maintenanceDraft.partsFluids = ''; maintenanceDraft.cost = 0; maintenanceDraft.workshop = ''; maintenanceDraft.nextServiceDue = ''; maintenanceDraft.receiptUrl = ''; showMaintenanceForm.value = false }
+function updateTechnicalDraft(value: VehicleTechnicalReference) { Object.assign(technicalDraft, value) }
 function saveTechnicalReference() { if (vehicle.value) vehicleStore.updateVehicle(vehicle.value.id, { technicalReference: { ...technicalDraft } }) }
 function saveOwnership() { if (vehicle.value) vehicleStore.updateVehicle(vehicle.value.id, { purchaseDate: ownershipDraft.purchaseDate, purchasePrice: ownershipDraft.purchasePrice, insurance: ownershipDraft.insurance, inspectionExpiry: ownershipDraft.inspectionExpiry, registration: ownershipDraft.registration, currentValue: ownershipDraft.currentValue, fuelCosts: ownershipDraft.fuelCosts, ownershipCost: ownershipDraft.ownershipCost }) }
 function openNewDiagnosis() { selectedDiagnosis.value = null; showDiagnosisEditor.value = true }
@@ -77,6 +82,110 @@ function addModification() { if (!vehicle.value || !modificationDraft.partInstal
 <style scoped>
 .back-link { color: var(--muted); text-decoration: none; font-size: 13px; }.detail-heading, .section-toolbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin: 34px 0 26px; }.detail-heading h2 { font: 700 34px 'Space Grotesk'; letter-spacing: -1.2px; margin: 9px 0 5px; }.detail-heading p, .hero-copy p { color: var(--muted); margin: 0; }.heading-actions { display: flex; gap: 10px; }.eyebrow { color: var(--muted); font-size: 10px; letter-spacing: 1.5px; font-weight: 700; }.button { border: 0; border-radius: 7px; padding: 11px 15px; font-weight: 700; text-decoration: none; cursor: pointer; }.button-primary { background: var(--accent); color: var(--accent-ink); }.button-outline { background: transparent; border: 1px solid var(--line); color: var(--brand-soft); }.button-soft { background: var(--surface-muted); color: var(--brand-soft); }.hero-detail { display: flex; align-items: stretch; background: var(--brand); border-radius: 9px; overflow: hidden; color: #fff; box-shadow: var(--shadow); }.detail-image { width: 42%; min-height: 220px; display: grid; place-items: center; background: linear-gradient(135deg, #718c7e, #284f44); }.detail-image.lada-samara { background: linear-gradient(135deg, #6d8491, #294f58); }.detail-image span { color: rgba(255,255,255,.55); font: 700 74px 'Space Grotesk'; letter-spacing: -7px; }.hero-copy { padding: 32px 38px; align-self: center; }.hero-copy .eyebrow { color: #a4c0ae; }.hero-copy strong { display: block; font: 700 42px 'Space Grotesk'; margin: 12px 0 8px; }.hero-copy strong small { font: 500 16px 'DM Sans'; }.hero-copy p { color: #aac2b2; font-size: 13px; }.detail-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 46px; }.detail-stats article { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow); }.detail-stats span, .detail-stats small { display: block; color: var(--muted); font-size: 10px; }.detail-stats strong { display: block; color: var(--brand-soft); font: 700 22px 'Space Grotesk'; margin: 12px 0 4px; }.edit-form { display: grid; gap: 18px; }.nested-form { margin: 18px 0 26px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-muted); }.edit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }.edit-grid label { display: grid; gap: 6px; color: var(--muted); font-size: 11px; font-weight: 700; }.edit-grid input, .edit-grid select { width: 100%; box-sizing: border-box; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--surface); color: var(--ink); }.edit-actions { display: flex; gap: 10px; }.section-toolbar { margin: 0 0 18px; }.section-toolbar span { color: var(--muted); font-size: 13px; }.service-timeline { display: grid; gap: 0; list-style: none; padding: 0; margin: 0; }.service-timeline li { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }.timeline-date { color: var(--brand-soft); font-weight: 700; }.timeline-date small, .timeline-content span, .timeline-content small { display: block; color: var(--muted); font-size: 12px; margin-top: 5px; }.timeline-content { display: grid; gap: 2px; }.timeline-content a { color: var(--brand-soft); font-size: 12px; margin-top: 6px; }.record-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }.record-card { display: grid; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; }.record-card span, .record-card small { color: var(--muted); font-size: 12px; }.record-card p { margin: 4px 0; }.checkbox-field { display: flex !important; align-items: center; gap: 8px !important; }.checkbox-field input { width: auto; }.empty-copy { color: var(--muted); padding: 18px 0; }.empty-state { padding: 70px 0; }.empty-state h2 { font: 700 30px 'Space Grotesk'; }.empty-state a { color: var(--brand-soft); }
 @media (max-width: 760px) { .detail-heading, .section-toolbar { align-items: flex-start; flex-direction: column; }.heading-actions { flex-wrap: wrap; }.hero-detail { display: block; }.detail-image { width: 100%; min-height: 130px; }.hero-copy { padding: 24px; }.hero-copy strong { font-size: 34px; }.detail-stats, .edit-grid, .record-grid { grid-template-columns: 1fr; }.service-timeline li { grid-template-columns: 1fr; gap: 8px; } }
+
+@media (max-width: 680px) {
+  .vehicle-page {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 4px;
+  }
+
+  .detail-heading {
+    margin-top: 8px;
+  }
+
+  .detail-heading > div:first-child {
+    width: 100%;
+  }
+
+  .detail-heading p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .heading-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-detail {
+    border-radius: 12px;
+  }
+
+  .detail-image {
+    min-height: 112px;
+  }
+
+  .detail-image span {
+    font-size: 52px;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 4px;
+    padding: 18px;
+  }
+
+  .hero-copy strong {
+    margin: 4px 0;
+  }
+
+  .detail-stats article {
+    min-width: 0;
+  }
+
+  .detail-stats strong {
+    overflow-wrap: anywhere;
+  }
+
+  .edit-grid label {
+    font-size: 12px;
+  }
+
+  .edit-grid input,
+  .edit-grid select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .edit-actions,
+  .edit-actions .button {
+    width: 100%;
+  }
+
+  .edit-actions .button {
+    min-height: 44px;
+  }
+
+  .nested-form {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 14px;
+  }
+
+  .service-timeline li {
+    padding: 16px 0;
+  }
+
+  .timeline-content {
+    min-width: 0;
+  }
+
+  .diagnosis-board {
+    width: 100%;
+  }
+
+  .empty-state {
+    padding: 36px 0;
+  }
+}
 </style>
 
 <style scoped>
