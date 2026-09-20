@@ -33,62 +33,62 @@ message VehicleRef {
 }
 
 message GpsTelemetry {
-  sint32 latitude_e7 = 1;
-  sint32 longitude_e7 = 2;
-  uint32 speed_kph_x10 = 3;
-  uint32 heading_degrees_x10 = 4;
-  uint32 accuracy_m_x100 = 5;
+  optional sint32 latitude_e7 = 1;
+  optional sint32 longitude_e7 = 2;
+  optional uint32 speed_kph_x10 = 3;
+  optional uint32 heading_degrees_x10 = 4;
+  optional uint32 accuracy_m_x100 = 5;
 }
 
 message ObdTelemetry {
-  uint32 rpm_x10 = 1;
-  uint32 speed_kph_x10 = 2;
-  sint32 coolant_celsius_x10 = 3;
-  uint32 engine_load_percent_x10 = 4;
-  uint32 map_kpa_x10 = 5;
-  sint32 intake_air_celsius_x10 = 6;
-  uint32 throttle_percent_x10 = 7;
-  sint32 short_fuel_trim_percent_x10 = 8;
-  sint32 long_fuel_trim_percent_x10 = 9;
-  uint32 maf_g_per_s_x100 = 10;
-  uint32 fuel_level_percent_x10 = 11;
-  uint32 control_module_voltage_x100 = 12;
-  sint32 timing_advance_degrees_x10 = 13;
-  uint32 fuel_pressure_kpa_x10 = 14;
-  uint32 runtime_since_start_seconds = 15;
-  uint32 barometric_pressure_kpa_x10 = 16;
-  sint32 ambient_air_celsius_x10 = 17;
+  optional uint32 rpm_x10 = 1;
+  optional uint32 speed_kph_x10 = 2;
+  optional sint32 coolant_celsius_x10 = 3;
+  optional uint32 engine_load_percent_x10 = 4;
+  optional uint32 map_kpa_x10 = 5;
+  optional sint32 intake_air_celsius_x10 = 6;
+  optional uint32 throttle_percent_x10 = 7;
+  optional sint32 short_fuel_trim_percent_x10 = 8;
+  optional sint32 long_fuel_trim_percent_x10 = 9;
+  optional uint32 maf_g_per_s_x100 = 10;
+  optional uint32 fuel_level_percent_x10 = 11;
+  optional uint32 control_module_voltage_x100 = 12;
+  optional sint32 timing_advance_degrees_x10 = 13;
+  optional uint32 fuel_pressure_kpa_x10 = 14;
+  optional uint32 runtime_since_start_seconds = 15;
+  optional uint32 barometric_pressure_kpa_x10 = 16;
+  optional sint32 ambient_air_celsius_x10 = 17;
 }
 
 message DerivedTelemetry {
-  sint32 total_fuel_trim_percent_x10 = 1;
-  uint32 estimated_air_mass_g_per_s_x100 = 2;
-  uint32 estimated_fuel_rate_lph_x100 = 3;
-  uint32 estimated_fuel_economy_l_per_100km_x100 = 4;
-  uint32 estimated_power_kw_x100 = 5;
-  uint32 estimated_torque_nm_x100 = 6;
+  optional sint32 total_fuel_trim_percent_x10 = 1;
+  optional uint32 estimated_air_mass_g_per_s_x100 = 2;
+  optional uint32 estimated_fuel_rate_lph_x100 = 3;
+  optional uint32 estimated_fuel_economy_l_per_100km_x100 = 4;
+  optional uint32 estimated_power_kw_x100 = 5;
+  optional uint32 estimated_torque_nm_x100 = 6;
 }
 
 message StateEstimate {
   uint64 timestamp_ms = 1;
   VehicleState state = 2;
-  uint32 confidence_x1000 = 3;
+  optional uint32 confidence_x1000 = 3;
 }
 
 message ShiftCandidate {
   ShiftCandidateDirection direction = 1;
-  uint32 confidence_x1000 = 2;
+  optional uint32 confidence_x1000 = 2;
 }
 
 message TelemetryEvent {
   uint64 sequence = 1;
   uint64 timestamp_ms = 2;
   TelemetryEventType type = 3;
-  VehicleState state_from = 4;
-  VehicleState state_to = 5;
-  uint32 confidence_x1000 = 6;
+  optional VehicleState state_from = 4;
+  optional VehicleState state_to = 5;
+  optional uint32 confidence_x1000 = 6;
   ShiftCandidate shift_candidate = 7;
-  string message = 8;
+  optional string message = 8;
 }
 
 message TelemetrySample {
