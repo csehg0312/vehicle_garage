@@ -3,7 +3,7 @@ export function encodeScaled(value: number | undefined, scale: number): number |
   if (!Number.isFinite(value)) {
     throw new RangeError('Telemetry value must be finite')
   }
-  return Math.round(value * scale)
+  return Math.sign(value) * Math.round(Math.abs(value) * scale)
 }
 
 export function decodeScaled(value: number | undefined, scale: number): number | undefined {
