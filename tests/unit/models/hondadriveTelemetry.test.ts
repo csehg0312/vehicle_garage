@@ -18,6 +18,7 @@ describe('HondaDrive telemetry domain model', () => {
       'DECELERATION',
       'COASTING_NEUTRAL',
       'HIGH_LOAD',
+      'SHIFTING',
     ])
   })
 
