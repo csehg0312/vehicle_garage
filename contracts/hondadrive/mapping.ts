@@ -92,7 +92,7 @@ export interface WireTelemetrySample {
 
 export interface WireTelemetryFrame {
   trip_id: string
-  vehicle?: WireVehicleRef
+  vehicle: WireVehicleRef
   first_sequence: number
   last_sequence: number
   sent_at_ms: number
@@ -100,6 +100,14 @@ export interface WireTelemetryFrame {
   samples: WireTelemetrySample[]
   state_estimates?: WireStateEstimate[]
   events?: WireTelemetryEvent[]
+}
+
+function requireDecoded(value: number | undefined, fieldName: string): number {
+  const decoded = decodeScaled(value, 1000)
+  if (decoded === undefined) {
+    throw new Error(`${fieldName} is required by the domain model`)
+  }
+  return decoded
 }
 
 export function toWireGps(value: GpsTelemetry): WireGpsTelemetry {
@@ -214,7 +222,7 @@ export function fromWireStateEstimate(value: WireStateEstimate): StateEstimate {
   return {
     timestampMs: value.timestamp_ms,
     state: value.state,
-    confidence: decodeScaled(value.confidence_x1000, 1000) ?? 0,
+    confidence: requireDecoded(value.confidence_x1000, 'StateEstimate confidence'),
   }
 }
 
@@ -228,7 +236,7 @@ export function toWireShiftCandidate(value: ShiftCandidate): WireShiftCandidate 
 export function fromWireShiftCandidate(value: WireShiftCandidate): ShiftCandidate {
   return {
     direction: value.direction,
-    confidence: decodeScaled(value.confidence_x1000, 1000) ?? 0,
+    confidence: requireDecoded(value.confidence_x1000, 'ShiftCandidate confidence'),
   }
 }
 
@@ -299,9 +307,7 @@ export function toWireFrame(value: TelemetryFrame): WireTelemetryFrame {
 export function fromWireFrame(value: WireTelemetryFrame): TelemetryFrame {
   return {
     tripId: value.trip_id,
-    vehicle: value.vehicle
-      ? fromWireVehicleRef(value.vehicle)
-      : { vehicleId: '' },
+    vehicle: fromWireVehicleRef(value.vehicle),
     firstSequence: value.first_sequence,
     lastSequence: value.last_sequence,
     sentAtMs: value.sent_at_ms,
