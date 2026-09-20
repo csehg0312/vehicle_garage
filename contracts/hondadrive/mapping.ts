@@ -102,6 +102,13 @@ export interface WireTelemetryFrame {
   events?: WireTelemetryEvent[]
 }
 
+function compact<T extends object>(value: T): T {
+  for (const key of Object.keys(value) as Array<keyof T>) {
+    if (value[key] === undefined) delete value[key]
+  }
+  return value
+}
+
 function requireDecoded(value: number | undefined, fieldName: string): number {
   const decoded = decodeScaled(value, 1000)
   if (decoded === undefined) {
@@ -111,13 +118,13 @@ function requireDecoded(value: number | undefined, fieldName: string): number {
 }
 
 export function toWireGps(value: GpsTelemetry): WireGpsTelemetry {
-  return {
+  return compact({
     latitude_e7: encodeScaled(value.latitude, 10_000_000),
     longitude_e7: encodeScaled(value.longitude, 10_000_000),
     speed_kph_x10: encodeUnsignedScaled(value.speedKph, 10),
     heading_degrees_x10: encodeUnsignedScaled(value.headingDegrees, 10),
     accuracy_m_x100: encodeUnsignedScaled(value.accuracyMeters, 100),
-  }
+  })
 }
 
 export function fromWireGps(value: WireGpsTelemetry): GpsTelemetry {
