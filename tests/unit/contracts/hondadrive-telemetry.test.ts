@@ -24,6 +24,14 @@ describe('HondaDrive protobuf contract', () => {
     expect(proto).toContain('enum ShiftCandidateDirection {')
   })
 
+  it('preserves optional field presence so zero is distinct from missing', () => {
+    expect(proto).toContain('optional uint32 rpm_x10 = 1;')
+    expect(proto).toContain('optional sint32 coolant_celsius_x10 = 3;')
+    expect(proto).toContain('optional uint32 speed_kph_x10 = 3;')
+    expect(proto).toContain('optional uint32 estimated_power_kw_x100 = 5;')
+    expect(proto).toContain('optional uint32 confidence_x1000 = 3;')
+  })
+
   it('uses integer scaling for compact numeric wire fields', () => {
     expect(proto).toContain('sint32 latitude_e7 = 1;')
     expect(proto).toContain('sint32 longitude_e7 = 2;')
