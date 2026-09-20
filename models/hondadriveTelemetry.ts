@@ -6,6 +6,7 @@ export const VEHICLE_STATES = [
   'DECELERATION',
   'COASTING_NEUTRAL',
   'HIGH_LOAD',
+  'SHIFTING',
 ] as const
 
 export type VehicleState = (typeof VEHICLE_STATES)[number]
