@@ -1,0 +1,194 @@
+{
+  "tripId": "e61a8f6b-9383-4672-b46b-8a15a1b4df66",
+  "vehicle": {
+    "vehicleId": "fixture-honda-civic-vii-eu8",
+    "profileId": "honda_civic_vii_d16v1"
+  },
+  "firstSequence": 1,
+  "lastSequence": 5,
+  "sentAtMs": 1789752924838,
+  "schemaVersion": 1,
+  "samples": [
+    {
+      "sequence": 1,
+      "timestampMs": 1789752025808,
+      "gps": {
+        "latitude": 48.653538,
+        "longitude": 20.536886,
+        "speedKph": 0,
+        "accuracyMeters": 7.78
+      },
+      "obd": {
+        "rpm": 844.75,
+        "speedKph": 0,
+        "coolantCelsius": 67,
+        "shortFuelTrimPercent": 14.06,
+        "longFuelTrimPercent": 7.03
+      },
+      "derived": {
+        "totalFuelTrimPercent": 21.09
+      }
+    },
+    {
+      "sequence": 2,
+      "timestampMs": 1789752036210,
+      "gps": {
+        "latitude": 48.653525,
+        "longitude": 20.53696,
+        "speedKph": 0,
+        "accuracyMeters": 3.95
+      },
+      "obd": {
+        "rpm": 845.25,
+        "speedKph": 0,
+        "coolantCelsius": 67,
+        "engineLoadPercent": 24.31,
+        "mapKpa": 25,
+        "intakeAirCelsius": 52,
+        "throttlePercent": 9.41,
+        "shortFuelTrimPercent": 14.06,
+        "longFuelTrimPercent": 7.03,
+        "controlModuleVoltage": 13.8
+      },
+      "derived": {
+        "totalFuelTrimPercent": 21.09,
+        "estimatedAirMassGPerS": 2.566,
+        "estimatedFuelRateLph": 0.843,
+        "estimatedPowerKw": 2.15,
+        "estimatedTorqueNm": 24.3
+      }
+    },
+    {
+      "sequence": 3,
+      "timestampMs": 1789752058560,
+      "gps": {
+        "latitude": 48.653469,
+        "longitude": 20.537165,
+        "speedKph": 10.19,
+        "headingDegrees": 129.5,
+        "accuracyMeters": 3.94
+      },
+      "obd": {
+        "rpm": 1451,
+        "speedKph": 10,
+        "coolantCelsius": 68,
+        "engineLoadPercent": 34.9,
+        "mapKpa": 27,
+        "intakeAirCelsius": 51,
+        "throttlePercent": 9.02,
+        "shortFuelTrimPercent": 14.06,
+        "longFuelTrimPercent": 7.03,
+        "controlModuleVoltage": 13.7
+      },
+      "derived": {
+        "totalFuelTrimPercent": 21.09,
+        "estimatedAirMassGPerS": 4.772,
+        "estimatedFuelRateLph": 1.569,
+        "estimatedFuelEconomyLPer100Km": 15.69,
+        "estimatedPowerKw": 4,
+        "estimatedTorqueNm": 26.32
+      }
+    },
+    {
+      "sequence": 4,
+      "timestampMs": 1789752327757,
+      "gps": {
+        "latitude": 48.646394,
+        "longitude": 20.52364,
+        "speedKph": 23.47,
+        "headingDegrees": 181.2,
+        "accuracyMeters": 3.8
+      },
+      "obd": {
+        "rpm": 1782.25,
+        "speedKph": 25,
+        "coolantCelsius": 91,
+        "engineLoadPercent": 40.39,
+        "mapKpa": 39,
+        "intakeAirCelsius": 41,
+        "throttlePercent": 16.47,
+        "shortFuelTrimPercent": 26.56,
+        "longFuelTrimPercent": 7.81,
+        "controlModuleVoltage": 13.7
+      },
+      "derived": {
+        "totalFuelTrimPercent": 34.38,
+        "estimatedAirMassGPerS": 8.736,
+        "estimatedFuelRateLph": 2.872,
+        "estimatedFuelEconomyLPer100Km": 11.49,
+        "estimatedPowerKw": 7.32,
+        "estimatedTorqueNm": 39.23
+      }
+    },
+    {
+      "sequence": 5,
+      "timestampMs": 1789752924838,
+      "gps": {
+        "latitude": 48.569963,
+        "longitude": 20.465398,
+        "speedKph": 73.04,
+        "headingDegrees": 150.2,
+        "accuracyMeters": 3.82
+      },
+      "obd": {
+        "rpm": 2759.25,
+        "speedKph": 73,
+        "coolantCelsius": 96,
+        "engineLoadPercent": 76.47,
+        "mapKpa": 76,
+        "intakeAirCelsius": 33,
+        "throttlePercent": 16.47,
+        "shortFuelTrimPercent": 13.28,
+        "longFuelTrimPercent": 7.81,
+        "controlModuleVoltage": 13.7
+      },
+      "derived": {
+        "totalFuelTrimPercent": 21.09,
+        "estimatedAirMassGPerS": 27.044,
+        "estimatedFuelRateLph": 8.89,
+        "estimatedFuelEconomyLPer100Km": 12.18,
+        "estimatedPowerKw": 22.67,
+        "estimatedTorqueNm": 78.44
+      }
+    }
+  ],
+  "stateEstimates": [
+    {
+      "timestampMs": 1789752025808,
+      "state": "CRUISING",
+      "confidence": 0.45
+    },
+    {
+      "timestampMs": 1789752036210,
+      "state": "IDLE",
+      "confidence": 0.9
+    },
+    {
+      "timestampMs": 1789752058560,
+      "state": "CRUISING",
+      "confidence": 0.56
+    },
+    {
+      "timestampMs": 1789752327757,
+      "state": "HIGH_LOAD",
+      "confidence": 0.56
+    },
+    {
+      "timestampMs": 1789752924838,
+      "state": "HIGH_LOAD",
+      "confidence": 0.75
+    }
+  ],
+  "events": [
+    {
+      "sequence": 3,
+      "timestampMs": 1789752058560,
+      "type": "SHIFT_CANDIDATE",
+      "confidence": 0.5,
+      "shiftCandidate": {
+        "direction": "DOWN",
+        "confidence": 0.5
+      }
+    }
+  ]
+}
