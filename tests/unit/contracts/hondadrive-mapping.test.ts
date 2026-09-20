@@ -70,7 +70,13 @@ describe('HondaDrive domain-wire mapping', () => {
       ],
     }
 
-    expect(fromWireFrame(toWireFrame(frame))).toEqual(frame)
+    const wire = toWireFrame(frame)
+    const decoded = fromWireFrame(wire)
+
+    expect(toWireFrame(decoded)).toEqual(wire)
+    expect(decoded.vehicle.vehicleId).toBe(frame.vehicle.vehicleId)
+    expect(decoded.samples).toHaveLength(frame.samples.length)
+    expect(decoded.samples[0].obd?.coolantCelsius).toBe(91.2)
   })
 
   it('preserves zero and missing values independently', () => {
