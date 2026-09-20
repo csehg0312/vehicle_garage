@@ -190,3 +190,31 @@ export function isTelemetryEventType(value: string): value is TelemetryEventType
 export function isShiftCandidateDirection(value: string): value is ShiftCandidateDirection {
   return (SHIFT_CANDIDATE_DIRECTIONS as readonly string[]).includes(value)
 }
+
+export const TELEMETRY_ENVELOPE_TYPES = ['TELEMETRY_FRAME', 'TELEMETRY_ACK'] as const
+export type TelemetryEnvelopeType = (typeof TELEMETRY_ENVELOPE_TYPES)[number]
+
+export const TELEMETRY_ACK_STATUSES = ['ACCEPTED', 'DUPLICATE', 'REJECTED'] as const
+export type TelemetryAckStatus = (typeof TELEMETRY_ACK_STATUSES)[number]
+
+export interface TelemetryAck {
+  tripId: string
+  acknowledgedSequence: number
+  receivedAtMs: number
+  status: TelemetryAckStatus
+  message?: string
+}
+
+export interface TelemetryEnvelope {
+  type: TelemetryEnvelopeType
+  frame?: TelemetryFrame
+  ack?: TelemetryAck
+}
+
+export function isTelemetryEnvelopeType(value: string): value is TelemetryEnvelopeType {
+  return (TELEMETRY_ENVELOPE_TYPES as readonly string[]).includes(value)
+}
+
+export function isTelemetryAckStatus(value: string): value is TelemetryAckStatus {
+  return (TELEMETRY_ACK_STATUSES as readonly string[]).includes(value)
+}
