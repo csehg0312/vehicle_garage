@@ -109,8 +109,12 @@ function compact<T extends object>(value: T): T {
   return value
 }
 
-function requireDecoded(value: number | undefined, fieldName: string): number {
-  const decoded = decodeScaled(value, 1000)
+function requireDecoded(
+  value: number | undefined,
+  scale: number,
+  fieldName: string,
+): number {
+  const decoded = decodeScaled(value, scale)
   if (decoded === undefined) {
     throw new Error(`${fieldName} is required by the domain model`)
   }
@@ -322,5 +326,5 @@ export function fromWireFrame(value: WireTelemetryFrame): TelemetryFrame {
     samples: value.samples.map(fromWireSample),
     stateEstimates: value.state_estimates?.map(fromWireStateEstimate),
     events: value.events?.map(fromWireEvent),
-  }
+  })
 }
