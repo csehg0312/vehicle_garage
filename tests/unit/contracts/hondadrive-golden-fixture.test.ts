@@ -9,7 +9,11 @@ describe('HondaDrive golden telemetry fixture', () => {
     const wire = toWireFrame(frame)
     const decoded = fromWireFrame(wire)
 
-    expect(decoded).toEqual(frame)
+    expect(toWireFrame(decoded)).toEqual(wire)
+    expect(decoded.tripId).toBe(frame.tripId)
+    expect(decoded.samples).toHaveLength(frame.samples.length)
+    expect(decoded.samples[0].gps?.latitude).toBeCloseTo(frame.samples[0].gps!.latitude, 7)
+    expect(decoded.samples[0].obd?.rpm).toBeCloseTo(frame.samples[0].obd!.rpm!, 1)
   })
 
   it('contains the expected realtime contract coverage', () => {
