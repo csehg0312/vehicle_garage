@@ -6,7 +6,7 @@
     </header>
     <div class="metrics-row">
       <article class="metric"><span>{{ t('garage.vehicles') }}</span><strong>{{ vehicleStore.vehicles.length }}</strong><small>{{ t('garage.inGarage') }}</small></article>
-      <article class="metric"><span>{{ t('garage.cost') }}</span><strong>{{ formatCurrency(vehicleStore.totalOwnershipCost) }}</strong><small>{{ t('garage.across') }}</small></article>
+	<article class="metric"><span>{{ t('garage.cost') }}</span><strong>{{ formatCurrency(totalOwnershipCost) }}</strong><small>{{ t('garage.across') }}</small></article>
       <article class="metric"><span>{{ t('garage.mileage') }}</span><strong>{{ formatNumber(totalMileage) }} km</strong><small>and counting</small></article>
     </div>
     <div class="list-heading"><div><span class="eyebrow">{{ t('garage.collection') }}</span><h3>{{ t('garage.yourVehicles') }}</h3></div><span>{{ vehicleStore.vehicles.length }} {{ t('garage.count') }}</span></div><p v-if="backupMessage" class="backup-message" role="status">{{ backupMessage }}</p>
@@ -30,6 +30,7 @@ const { t } = useI18n()
 const fileInput = ref<HTMLInputElement>()
 const backupMessage = ref('')
 const totalMileage = computed(() => vehicleStore.vehicles.reduce((total, vehicle) => total + vehicle.odometer, 0))
+const totalOwnershipCost = computed(() => vehicleStore.totalOwnershipCost + maintenanceStore.records.reduce((total, record) => total + record.cost, 0))
 const formatNumber = (value: number) => new Intl.NumberFormat('en-US').format(value)
 const formatCurrency = (value: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value)
 function exportBackup() {
