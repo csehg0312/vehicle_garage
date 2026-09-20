@@ -11,6 +11,7 @@ enum VehicleState {
   DECELERATION = 5;
   COASTING_NEUTRAL = 6;
   HIGH_LOAD = 7;
+  SHIFTING = 8;
 }
 
 enum TelemetryEventType {
