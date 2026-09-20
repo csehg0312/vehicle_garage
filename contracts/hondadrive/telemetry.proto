@@ -28,6 +28,19 @@ enum ShiftCandidateDirection {
   DOWN = 2;
 }
 
+enum TelemetryEnvelopeType {
+  TELEMETRY_ENVELOPE_TYPE_UNSPECIFIED = 0;
+  TELEMETRY_FRAME = 1;
+  TELEMETRY_ACK = 2;
+}
+
+enum TelemetryAckStatus {
+  TELEMETRY_ACK_STATUS_UNSPECIFIED = 0;
+  ACCEPTED = 1;
+  DUPLICATE = 2;
+  REJECTED = 3;
+}
+
 message VehicleRef {
   string vehicle_id = 1;
   string profile_id = 2;
@@ -110,4 +123,20 @@ message TelemetryFrame {
   repeated StateEstimate state_estimates = 7;
   repeated TelemetryEvent events = 8;
   uint32 schema_version = 9;
+}
+
+message TelemetryAck {
+  string trip_id = 1;
+  uint64 acknowledged_sequence = 2;
+  uint64 received_at_ms = 3;
+  TelemetryAckStatus status = 4;
+  optional string message = 5;
+}
+
+message TelemetryEnvelope {
+  TelemetryEnvelopeType type = 1;
+  oneof payload {
+    TelemetryFrame frame = 2;
+    TelemetryAck ack = 3;
+  }
 }
