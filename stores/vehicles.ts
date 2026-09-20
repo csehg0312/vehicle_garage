@@ -44,7 +44,7 @@ function readStoredVehicles(): Vehicle[] {
 }
 
 function migrateVehicle(value: unknown): Vehicle | undefined {
-	if (!isVehicle(value)) return undefined
+	if (!isVehicle(value as Vehicle)) return undefined
 
 	const vehicle = value as Vehicle & {
 		technicalReference?: LegacyVehicleTechnicalReference | Vehicle['technicalReference']
