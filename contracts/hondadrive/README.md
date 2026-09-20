@@ -18,7 +18,7 @@ The reference trip showed approximately 1 Hz GPS samples and a median OBD interv
 - Latitude/longitude use signed integer E7 encoding.
 - Physical values use integer scaling (x10, x100, or x1000) where appropriate.
 - uint64 sequence/timestamp fields prevent the wire contract from imposing a 32-bit sequence limit.
-- Nested GPS/OBD/derived messages preserve field presence, including valid zero values.
+- Nested GPS/OBD/derived messages preserve field presence. Scalar telemetry fields use proto3 `optional`, so a valid zero value is distinct from an absent measurement.
 
 ## Privacy
 
