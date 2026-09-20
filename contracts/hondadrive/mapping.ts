@@ -122,8 +122,8 @@ export function toWireGps(value: GpsTelemetry): WireGpsTelemetry {
 
 export function fromWireGps(value: WireGpsTelemetry): GpsTelemetry {
   return {
-    latitude: decodeScaled(value.latitude_e7, 10_000_000)!,
-    longitude: decodeScaled(value.longitude_e7, 10_000_000)!,
+    latitude: requireDecoded(value.latitude_e7, 10_000_000, 'GPS latitude'),
+    longitude: requireDecoded(value.longitude_e7, 10_000_000, 'GPS longitude'),
     speedKph: decodeScaled(value.speed_kph_x10, 10),
     headingDegrees: decodeScaled(value.heading_degrees_x10, 10),
     accuracyMeters: decodeScaled(value.accuracy_m_x100, 100),
@@ -222,7 +222,7 @@ export function fromWireStateEstimate(value: WireStateEstimate): StateEstimate {
   return {
     timestampMs: value.timestamp_ms,
     state: value.state,
-    confidence: requireDecoded(value.confidence_x1000, 'StateEstimate confidence'),
+    confidence: requireDecoded(value.confidence_x1000, 1000, 'StateEstimate confidence'),
   }
 }
 
@@ -236,7 +236,7 @@ export function toWireShiftCandidate(value: ShiftCandidate): WireShiftCandidate 
 export function fromWireShiftCandidate(value: WireShiftCandidate): ShiftCandidate {
   return {
     direction: value.direction,
-    confidence: requireDecoded(value.confidence_x1000, 'ShiftCandidate confidence'),
+    confidence: requireDecoded(value.confidence_x1000, 1000, 'ShiftCandidate confidence'),
   }
 }
 
